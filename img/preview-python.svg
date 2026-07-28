@@ -1,0 +1,54 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <!-- Window background -->
+  <rect x="0" y="0" width="900" height="480" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="480" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
+  <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">check_timing.py — Voltage</text>
+
+  <!-- Code area -->
+  <g font-size="18">
+    <text x="30" y="80" fill="#7cb668"># Quick check on slack results before running full STA</text>
+
+    <text x="30" y="115">
+      <tspan fill="#ffa657">def </tspan><tspan fill="#00d4ff">check_slack</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#ffdd88">path</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#ffdd88">margin</tspan><tspan fill="#ffffff">=</tspan><tspan fill="#ff6b9d">0.0</tspan><tspan fill="#ffffff">):</tspan>
+    </text>
+
+    <text x="65" y="150">
+      <tspan fill="#ffffff">report = </tspan><tspan fill="#00d4ff">parse_report</tspan><tspan fill="#ffffff">(path)</tspan>
+    </text>
+
+    <text x="65" y="185">
+      <tspan fill="#ff6b9d">if</tspan><tspan fill="#ffffff"> report.slack &lt; margin </tspan><tspan fill="#ffcc00">and</tspan><tspan fill="#ffffff"> </tspan><tspan fill="#ffcc00">not</tspan><tspan fill="#ffffff"> report.ignored:</tspan>
+    </text>
+    <text x="100" y="215">
+      <tspan fill="#00d4ff">print</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#00ff41">f"VIOLATION: {report.path}"</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+    <text x="100" y="245">
+      <tspan fill="#ffffff">return </tspan><tspan fill="#ffcc00">False</tspan>
+    </text>
+
+    <text x="65" y="280">
+      <tspan fill="#ff6b9d">elif</tspan><tspan fill="#ffffff"> report.slack &lt; margin </tspan><tspan fill="#ffcc00">or</tspan><tspan fill="#ffffff"> report.flagged:</tspan>
+    </text>
+    <text x="100" y="310">
+      <tspan fill="#00d4ff">print</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#00ff41">"WARNING: near margin"</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+
+    <text x="65" y="345">
+      <tspan fill="#ffffff">return </tspan><tspan fill="#ffcc00">True</tspan>
+    </text>
+
+    <text x="30" y="390">
+      <tspan fill="#ff6b9d">if</tspan><tspan fill="#ffffff"> __name__ == </tspan><tspan fill="#00ff41">"__main__"</tspan><tspan fill="#ffffff">:</tspan>
+    </text>
+    <text x="65" y="420">
+      <tspan fill="#00d4ff">check_slack</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#00ff41">"reports/rob_top.rpt"</tspan><tspan fill="#ffffff">, margin=</tspan><tspan fill="#ff6b9d">0.05</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+  </g>
+</svg>
