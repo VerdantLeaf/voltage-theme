@@ -1,0 +1,61 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <!-- Window background -->
+  <rect x="0" y="0" width="900" height="560" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="560" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
+  <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">matrix_kernel.cu — Voltage</text>
+
+  <!-- Code area -->
+  <g font-size="18">
+    <!-- line 1: comment -->
+    <text x="30" y="80" fill="#7cb668">// Permutes the matmul result and applies scaling</text>
+
+    <!-- line 2: TODO comment -->
+    <text x="30" y="110" fill="#7cb668">// <tspan fill="#FF0000" font-weight="bold">TODO:</tspan> tune block size for occupancy</text>
+
+    <!-- line 3: kernel signature -->
+    <text x="30" y="150">
+      <tspan fill="#ffa657">__global__ void </tspan><tspan fill="#00d4ff">matrix_permute_kernel</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#ffa657">const float</tspan><tspan fill="#ffffff"> *</tspan><tspan fill="#ffdd88">input</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#ffa657">float</tspan><tspan fill="#ffffff"> *</tspan><tspan fill="#ffdd88">output</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#ffa657">int</tspan><tspan fill="#ffdd88"> Map_out</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="180">
+      <tspan fill="#ffa657">int</tspan><tspan fill="#ffdd88"> Batch</tspan><tspan fill="#ffffff">, </tspan><tspan fill="#ffa657">int</tspan><tspan fill="#ffdd88"> image_size</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+
+    <text x="30" y="210" fill="#ffffff">{</text>
+
+    <!-- body -->
+    <text x="65" y="240">
+      <tspan fill="#ffa657">int</tspan><tspan fill="#ffffff"> b = </tspan><tspan fill="#ffffff">blockIdx</tspan><tspan fill="#ff6b9d">.y</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+    <text x="65" y="270">
+      <tspan fill="#ffa657">int</tspan><tspan fill="#ffffff"> x = </tspan><tspan fill="#ffffff">blockIdx</tspan><tspan fill="#ff6b9d">.x</tspan><tspan fill="#ffffff"> * </tspan><tspan fill="#ffffff">blockDim</tspan><tspan fill="#ff6b9d">.x</tspan><tspan fill="#ffffff"> + </tspan><tspan fill="#ffffff">threadIdx</tspan><tspan fill="#ff6b9d">.x</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+
+    <text x="65" y="310">
+      <tspan fill="#ff6b9d">if</tspan><tspan fill="#ffffff"> (x &lt; </tspan><tspan fill="#ffdd88">image_size</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+    <text x="65" y="340" fill="#ffffff">{</text>
+    <text x="100" y="370">
+      <tspan fill="#ffffff">output[b * </tspan><tspan fill="#ffdd88">Map_out</tspan><tspan fill="#ffffff"> + x] = </tspan><tspan fill="#ffffff">input[b] * </tspan><tspan fill="#ff6b9d">2.0f</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+    <text x="65" y="400" fill="#ffffff">}</text>
+    <text x="30" y="430" fill="#ffffff">}</text>
+
+    <!-- SystemVerilog snippet -->
+    <text x="30" y="475">
+      <tspan fill="#ffa657">module </tspan><tspan fill="#00d4ff">cdb_arbiter</tspan><tspan fill="#ffffff"> (</tspan>
+    </text>
+    <text x="65" y="505">
+      <tspan fill="#4fc1ff">input </tspan><tspan fill="#4fc1ff">logic </tspan><tspan fill="#ffdd88">clk</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="535">
+      <tspan fill="#ffffff">cdb_packet</tspan><tspan fill="#ffffff">.</tspan><tspan fill="#ffcc00">fu_pkt</tspan><tspan fill="#ffffff">.</tspan><tspan fill="#ff6b9d">rob_idx</tspan><tspan fill="#ffffff"> = br_pkt_in.</tspan><tspan fill="#ff6b9d">rob_idx</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+  </g>
+</svg>
