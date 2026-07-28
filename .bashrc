@@ -2,7 +2,7 @@
 parse_git_branch() {
   git branch 2>/dev/null | sed -n '/\* /s///p'
 }
-PS1='\[\e[36m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[33m\]$(parse_git_branch)\[\e[0m\]\$ 
+PS1='\[\e[36m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[33m\]$(parse_git_branch)\[\e[0m\]\$ '
 
 shopt -s autocd
 
