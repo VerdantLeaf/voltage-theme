@@ -1,12 +1,20 @@
 
+parse_git_branch() {
+  git branch 2>/dev/null | sed -n '/\* /s///p'
+}
+PS1='\[\e[36m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[33m\]$(parse_git_branch)\[\e[0m\]\$ 
 
 shopt -s autocd
 
+HISTCONTROL=ignoreboth
+shopt -s histappend 
 HISTSIZE=5000
 
 alias ...="cd ../.."
 alias back="cd -"
 
+alias ebrc="${EDITOR:-vim} ~/.bashrc"
+alias sbrc="source ~/.bashrc"
 
 alias gs="git status"
 alias ga="git add"
