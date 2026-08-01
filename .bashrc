@@ -30,9 +30,6 @@ alias grep="grep --color=auto"
 alias df="df -h"
 alias du="du -h"
 alias free="free -h"
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
 
 alias less="less -R -N"
 
