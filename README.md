@@ -89,7 +89,7 @@ See [`docs/palette.md`](docs/palette.md) for the full color table.
   <img src="img/preview-python.svg" width="700" alt="Voltage theme preview — Python"/>
 </p>
 
-> These previews are hand-colored mockups built from real snippets of the projects linked above, not literal editor screenshots — they guarantee accurate, crisp-at-any-size rendering of the palette (including the gold `and`/`or`/`not`/enum/macro color, which none of our own sample snippets happen to exercise much). Swap in your own screenshots if you want the literal editor chrome.
+> The listed previews are mockups with code from different open source projects
 
 ## Language-specific notes
 
