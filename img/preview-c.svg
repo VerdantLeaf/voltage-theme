@@ -1,0 +1,43 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <rect x="0" y="0" width="900" height="460" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="460" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
+  <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">tool_getparam.c — curl</text>
+
+  <g font-size="18">
+    <text x="30" y="80">
+      <tspan fill="#ffa657">static </tspan><tspan fill="#4fc1ff">ParameterError </tspan><tspan fill="#00d4ff">parse_ech</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#ffa657">struct </tspan><tspan fill="#4fc1ff">OperationConfig </tspan><tspan fill="#ffffff">*</tspan><tspan fill="#ffdd88">config</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="105" y="110">
+      <tspan fill="#ffa657">const char </tspan><tspan fill="#ffffff">*</tspan><tspan fill="#ffdd88">nextarg</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+    <text x="30" y="140" fill="#ffffff">{</text>
+
+    <text x="65" y="170">
+      <tspan fill="#4fc1ff">ParameterError </tspan><tspan fill="#ffffff">err = </tspan><tspan fill="#ffcc00">PARAM_OK</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+    <text x="65" y="200">
+      <tspan fill="#ff6b9d">if</tspan><tspan fill="#ffffff">(!</tspan><tspan fill="#ffffff">feature_ech</tspan><tspan fill="#ffffff">)</tspan>
+    </text>
+    <text x="100" y="230">
+      <tspan fill="#ffffff">err = </tspan><tspan fill="#ffcc00">PARAM_LIBCURL_DOESNT_SUPPORT</tspan><tspan fill="#ffffff">;</tspan>
+    </text>
+    <text x="65" y="260">
+      <tspan fill="#ff6b9d">else if</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#82e2ff">strlen</tspan><tspan fill="#ffffff">(nextarg) &gt; </tspan><tspan fill="#ff6b9d">4</tspan><tspan fill="#ffffff"> &amp;&amp; </tspan><tspan fill="#82e2ff">curl_strnequal</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#00ff41">"pn:"</tspan><tspan fill="#ffffff">, nextarg, </tspan><tspan fill="#ff6b9d">3</tspan><tspan fill="#ffffff">)) {</tspan>
+    </text>
+    <text x="100" y="290" fill="#7cb668">/* a public_name */</text>
+    <text x="100" y="320">
+      <tspan fill="#ffffff">err = </tspan><tspan fill="#82e2ff">getstr</tspan><tspan fill="#ffffff">(&amp;config-&gt;</tspan><tspan fill="#ff6b9d">ech_public</tspan><tspan fill="#ffffff">, nextarg, </tspan><tspan fill="#ffcc00">DENY_BLANK</tspan><tspan fill="#ffffff">);</tspan>
+    </text>
+    <text x="65" y="350" fill="#ffffff">}</text>
+    <text x="65" y="380">
+      <tspan fill="#ff6b9d">return </tspan><tspan fill="#ffffff">err;</tspan>
+    </text>
+    <text x="30" y="410" fill="#ffffff">}</text>
+  </g>
+</svg>

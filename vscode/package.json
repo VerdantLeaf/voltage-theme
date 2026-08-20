@@ -1,0 +1,35 @@
+{
+  "name": "voltage-theme",
+  "displayName": "Voltage",
+  "description": "A high-contrast, vibrant dark theme with clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.",
+  "version": "1.0.0",
+  "publisher": "VerdantLeaf",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VerdantLeaf/voltage-theme.git"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "high contrast",
+    "systemverilog",
+    "cuda"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Voltage",
+        "uiTheme": "vs-dark",
+        "path": "./themes/voltage-color-theme.json"
+      }
+    ]
+  }
+}

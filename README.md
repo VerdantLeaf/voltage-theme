@@ -1,6 +1,6 @@
 # Voltage
 
-A high-contrast, vibrant dark theme for VS Code (built on top of **GitHub Dark Default**), plus my personal `.bashrc`.
+A high-contrast, vibrant dark VS Code theme, plus dotfiles for other tools.
 
 No dimming, no washed-out "filter" look — dark background, rich color variety, and clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.
 
@@ -8,71 +8,99 @@ No dimming, no washed-out "filter" look — dark background, rich color variety,
   <img src="img/voltage-logo.svg" width="220" alt="Voltage logo"/>
 </p>
 
-## What's in this repo
+## Structure
 
-- `settings.json` — the full VS Code color scheme (token colors + workbench colors)
-- `.bashrc` — personal shell config
-- `img/` — logo and preview images referenced in this README
+```
+voltage/
+├── vscode/
+│   ├── package.json
+│   └── themes/
+│       └── voltage-color-theme.json
+├── bash/
+│   └── .bashrc
+├── docs/
+│   └── palette.md
+├── img/
+│   ├── voltage-logo.svg
+│   ├── preview-c.svg
+│   ├── preview-sv.svg
+│   └── preview-python.svg
+├── LICENSE
+└── README.md
+```
+
+Each tool gets its own top-level folder. The palette itself is documented once, in `docs/palette.md`, rather than duplicated per app.
 
 ## Installation
 
-1. Install the **GitHub Dark Default** theme in VS Code (this is a set of overrides on top of it, not a standalone theme).
-2. Copy the contents of `settings.json` into your VS Code `settings.json` (`Ctrl+Shift+P` → "Preferences: Open User Settings (JSON)").
-   - If you already have settings in there, merge the keys rather than overwriting the whole file.
+**VS Code:**
 
-For `.bashrc`, just grab what you need and drop it into `~/.bashrc` — not meant to be dropped in wholesale.
+Grab the packaged extension from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and install it with:
 
-## Color palette
+```
+code --install-extension voltage-theme-1.0.0.vsix
+```
 
-| Element                                                                    | Hex       |                                                          |
-| -------------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
-| Strings                                                                    | `#00ff41` | ![#00ff41](https://placehold.co/15x15/00ff41/00ff41.png) |
-| Numbers / control flow (`if`, `for`, etc.) / struct & signal member access | `#ff6b9d` | ![#ff6b9d](https://placehold.co/15x15/ff6b9d/ff6b9d.png) |
-| Types (`size_t`, classes, SV `logic`/`input`)                              | `#4fc1ff` | ![#4fc1ff](https://placehold.co/15x15/4fc1ff/4fc1ff.png) |
-| Declaration keywords (`const`, `int`, `void`)                              | `#ffa657` | ![#ffa657](https://placehold.co/15x15/ffa657/ffa657.png) |
-| Function declarations                                                      | `#00d4ff` | ![#00d4ff](https://placehold.co/15x15/00d4ff/00d4ff.png) |
-| Function calls                                                             | `#82e2ff` | ![#82e2ff](https://placehold.co/15x15/82e2ff/82e2ff.png) |
-| Function parameters                                                        | `#ffdd88` | ![#ffdd88](https://placehold.co/15x15/ffdd88/ffdd88.png) |
-| Local variables                                                            | `#ffffff` | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) |
-| Enums & macros                                                             | `#ffcc00` | ![#ffcc00](https://placehold.co/15x15/ffcc00/ffcc00.png) |
-| Comments                                                                   | `#7cb668` | ![#7cb668](https://placehold.co/15x15/7cb668/7cb668.png) |
-| TODO / FIXME tags                                                          | `#FF0000` | ![#FF0000](https://placehold.co/15x15/FF0000/FF0000.png) |
-| Cursor                                                                     | `#ff3333` | ![#ff3333](https://placehold.co/15x15/ff3333/ff3333.png) |
+Or install manually from the file: `Ctrl+Shift+P` → "Extensions: Install from VSIX..." → select the `.vsix`.
 
-Bracket pair colors cycle through gold, orchid, sky blue, tomato, mint, and light orange.
+Then `Ctrl+Shift+P` → "Preferences: Color Theme" → select **Voltage**.
+
+To build the `.vsix` yourself:
+
+```
+cd vscode
+npx @vscode/vsce package
+```
+
+**Recommended settings:**
+
+VS Code themes can only contribute colors — not editor behavior — so the rainbow bracket-pair guides need one setting turned on by hand in your own `settings.json` (colorization itself, `editor.bracketPairColorization.enabled`, is already `true` by default in modern VS Code):
+
+```json
+{
+  "editor.guides.bracketPairs": true
+}
+```
+
+**Bash:**
+Grab what you need from `bash/.bashrc` and drop it into `~/.bashrc` — not meant to be copied in wholesale.
+
+## Palette
+
+See [`docs/palette.md`](docs/palette.md) for the full color table.
 
 ## Preview
 
-**C / CUDA and SystemVerilog:**
+**C** — excerpt from [curl](https://github.com/curl/curl):
 
 <p align="center">
-  <img src="img/preview-c-sv.svg" width="700" alt="Voltage theme preview — C/CUDA and SystemVerilog"/>
+  <img src="img/preview-c.svg" width="700" alt="Voltage theme preview — C"/>
 </p>
 
-**Tcl:**
+**SystemVerilog:**
 
 <p align="center">
-  <img src="img/preview-tcl.svg" width="700" alt="Voltage theme preview — Tcl"/>
+  <img src="img/preview-sv.svg" width="700" alt="Voltage theme preview — SystemVerilog"/>
 </p>
 
-**Python:**
+**Python** — excerpt from [omlx](https://github.com/jundot/omlx):
 
 <p align="center">
   <img src="img/preview-python.svg" width="700" alt="Voltage theme preview — Python"/>
 </p>
 
-> These previews are hand-built mockups approximating the real editor rendering, not actual screenshots — useful for a quick look, but worth swapping in real screenshots from your own setup if you want pixel-perfect accuracy.
+> These previews are hand-colored mockups built from real snippets of the projects linked above, not literal editor screenshots — they guarantee accurate, crisp-at-any-size rendering of the palette (including the gold `and`/`or`/`not`/enum/macro color, which none of our own sample snippets happen to exercise much). Swap in your own screenshots if you want the literal editor chrome.
 
 ## Language-specific notes
 
 - **C/C++**: struct/object member access (e.g. `x` in `threadIdx.x`) is colored separately from the base identifier.
 - **SystemVerilog**: port declarations (`input`, `output`, `logic`) follow the type/parameter color scheme; struct field access matches the C struct-access color; plain signals default to white.
 - **Tcl**: commands match function color, variables are white, flags/options are orange, control keywords are pink-red.
-- **Python**: `and` / `or` / `not` in conditionals get their own color (see `settings.json` for the current mapping).
+- **Python**: `and` / `or` / `not` in conditionals get their own gold color, matching enums/macros.
 
-## Why keep this in a repo?
+## License
 
-VS Code settings usually sync automatically when signed into a personal GitHub account, so this is partly redundant day-to-day. It's here for the cases where that's not true — machines where you're logged into a different account, shared/lab machines, or anywhere you're not signed in at all. `.bashrc` isn't covered by Settings Sync at all, so it's worth keeping here regardless.
+MIT — see [LICENSE](LICENSE).
 
 ## Notes
 

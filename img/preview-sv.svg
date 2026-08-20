@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 530" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <rect x="0" y="0" width="900" height="530" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="530" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
+  <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">queue.sv — Voltage</text>
+
+  <g font-size="18">
+    <text x="30" y="80">
+      <tspan fill="#ffa657">module </tspan><tspan fill="#00d4ff">queue </tspan><tspan fill="#ffffff">#(</tspan>
+    </text>
+    <text x="65" y="110">
+      <tspan fill="#ffa657">type      </tspan><tspan fill="#4fc1ff">queue_data_t</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="140">
+      <tspan fill="#ffa657">parameter </tspan><tspan fill="#ffdd88">DEPTH </tspan><tspan fill="#ffffff">= </tspan><tspan fill="#ff6b9d">16</tspan>
+    </text>
+    <text x="30" y="170" fill="#ffffff">) (</text>
+    <text x="65" y="200">
+      <tspan fill="#4fc1ff">input  logic </tspan><tspan fill="#ffdd88">write_en</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="230">
+      <tspan fill="#4fc1ff">input  logic </tspan><tspan fill="#ffdd88">read_en</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="260">
+      <tspan fill="#4fc1ff">output </tspan><tspan fill="#4fc1ff">queue_data_t </tspan><tspan fill="#ffdd88">data_out</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="290">
+      <tspan fill="#4fc1ff">output logic </tspan><tspan fill="#ffdd88">empty</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="320">
+      <tspan fill="#4fc1ff">output logic </tspan><tspan fill="#ffdd88">full</tspan>
+    </text>
+    <text x="30" y="350" fill="#ffffff">);</text>
+
+    <text x="65" y="390">
+      <tspan fill="#ffa657">localparam </tspan><tspan fill="#ffdd88">PTR_W </tspan><tspan fill="#ffffff">= </tspan><tspan fill="#82e2ff">$clog2</tspan><tspan fill="#ffffff">(DEPTH); </tspan><tspan fill="#7cb668">// rounds up for non-powers of two</tspan>
+    </text>
+
+    <text x="65" y="430">
+      <tspan fill="#4fc1ff">logic </tspan><tspan fill="#ffffff">[PTR_W : 0] </tspan><tspan fill="#ffffff">write_ptr;</tspan>
+    </text>
+    <text x="65" y="460">
+      <tspan fill="#4fc1ff">logic </tspan><tspan fill="#ffffff">[PTR_W : 0] </tspan><tspan fill="#ffffff">read_ptr;</tspan>
+    </text>
+
+    <text x="65" y="500">
+      <tspan fill="#ffa657">assign </tspan><tspan fill="#ffffff">empty = (write_ptr == read_ptr);</tspan>
+    </text>
+  </g>
+</svg>
