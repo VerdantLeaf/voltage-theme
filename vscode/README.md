@@ -26,6 +26,16 @@ For rainbow bracket-pair guides, also add this to your own `settings.json` — t
 }
 ```
 
+Voltage doesn't bundle file icons, but if you have [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) installed, these are the folder/file tint colors used alongside Voltage:
+
+```json
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.color": "#F56600",
+  "material-icon-theme.files.color": "#522DB0"
+}
+```
+
 ## Palette & full documentation
 
 See the [project repository](https://github.com/VerdantLeaf/voltage-theme) for the full color palette, language-specific notes, and the bash dotfiles this repo also ships.

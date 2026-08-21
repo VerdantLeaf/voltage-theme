@@ -27,4 +27,4 @@ These colors are wired up via `editorBracketHighlight.foreground1-6` in the them
 - **C/C++**: struct/object member access (e.g. `x` in `threadIdx.x`) is colored separately from the base identifier.
 - **SystemVerilog**: port declarations (`input`, `output`, `logic`) follow the type/parameter color scheme; struct field access matches the C struct-access color; plain signals default to white.
 - **Tcl**: commands match function color, variables are white, flags/options are orange, control keywords are pink-red.
-- **Python**: `and` / `or` / `not` in conditionals get their own gold color (`#ffcc00`), matching enums/macros.
+- **Python**: `and` / `or` / `not` in conditionals are gold as well (`#ffcc00`), matching enums/macros.

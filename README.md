@@ -1,8 +1,10 @@
 # Voltage
 
-A high-contrast, vibrant dark VS Code theme, plus dotfiles for other tools.
+Voltage is a high-contrast, vibrant dark VS Code theme, which I might expand to other tools as well. 
 
-No dimming, no washed-out "filter" look — dark background, rich color variety, and clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.
+This project originated with my dissatisfaction with every color theme I seemed to find. I could never get the right combination of colors that I found to be helpful in identifying code and visually pleasing. 
+
+So, I made **Voltage** - No dimming, no washed out colors, but a rich set of vibrant colors against a clean dark background with customization throughout for different languages. 
 
 <p align="center">
   <img src="img/voltage-logo.svg" width="220" alt="Voltage logo"/>
@@ -38,7 +40,7 @@ Each tool gets its own top-level folder. The palette itself is documented once, 
 Grab the packaged extension from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and install it with:
 
 ```
-code --install-extension voltage-theme-1.0.0.vsix
+code --install-extension voltage-theme-1.0.1.vsix
 ```
 
 Or install manually from the file: `Ctrl+Shift+P` → "Extensions: Install from VSIX..." → select the `.vsix`.
@@ -54,7 +56,7 @@ npx @vscode/vsce package
 
 **Recommended settings:**
 
-VS Code themes can only contribute colors — not editor behavior — so the rainbow bracket-pair guides need one setting turned on by hand in your own `settings.json` (colorization itself, `editor.bracketPairColorization.enabled`, is already `true` by default in modern VS Code):
+I recommend extending the theme with rainbow bracket-pair guides. However, these need to be turned on by hand in your own `settings.json` (colorization itself, `editor.bracketPairColorization.enabled`, is already `true` by default in modern VS Code):
 
 ```json
 {
@@ -62,8 +64,18 @@ VS Code themes can only contribute colors — not editor behavior — so the rai
 }
 ```
 
+Voltage doesn't bundle its own file icons, but if you have the [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension installed, these are the folder/file tint colors used alongside Voltage:
+
+```json
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.color": "#F56600",
+  "material-icon-theme.files.color": "#522DB0"
+}
+```
+
 **Bash:**
-Grab what you need from `bash/.bashrc` and drop it into `~/.bashrc` — not meant to be copied in wholesale.
+Grab what you'd like from `bash/.bashrc` and drop it into `~/.bashrc` — More for my personal uses
 
 ## Palette
 
