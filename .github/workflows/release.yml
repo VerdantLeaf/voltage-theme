@@ -1,0 +1,74 @@
+name: Release VS Code Extension
+
+# Fires whenever vscode/package.json changes on main. If its "version" field
+# doesn't already have a matching GitHub Release, packages the extension and
+# publishes one automatically. Bumping the version (as part of a PR or a
+# follow-up commit) is what triggers a release - no manual tagging needed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - vscode/package.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(jq -r .version vscode/package.json)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check if this version was already released
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node
+        if: steps.check.outputs.exists == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Package extension
+        if: steps.check.outputs.exists == 'false'
+        working-directory: vscode
+        run: npx @vscode/vsce package
+
+      - name: Extract changelog section for this version
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          awk -v ver="${{ steps.version.outputs.version }}" '
+            $0 ~ "^## " ver "$" { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' vscode/CHANGELOG.md > release_notes.md
+          if [ ! -s release_notes.md ]; then
+            echo "Voltage ${{ steps.version.outputs.tag }}" > release_notes.md
+          fi
+
+      - name: Create GitHub release
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" \
+            "vscode/voltage-theme-${{ steps.version.outputs.version }}.vsix" \
+            --title "Voltage ${{ steps.version.outputs.tag }}" \
+            --notes-file release_notes.md

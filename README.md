@@ -54,6 +54,8 @@ cd vscode
 npx @vscode/vsce package
 ```
 
+**Releasing (maintainers):** bump `version` in `vscode/package.json`, add a matching `## X.Y.Z` entry to `vscode/CHANGELOG.md`, and merge to `main`. A [GitHub Actions workflow](.github/workflows/release.yml) then packages the extension and publishes a GitHub Release with the `.vsix` attached automatically — no manual tagging needed.
+
 **Recommended settings:**
 
 I recommend extending the theme with rainbow bracket-pair guides. However, these need to be turned on by hand in your own `settings.json` (colorization itself, `editor.bracketPairColorization.enabled`, is already `true` by default in modern VS Code):
