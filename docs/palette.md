@@ -11,6 +11,7 @@
 | ![#ffdd88](../img/swatches/ffdd88.svg) | Function parameters | `#ffdd88` |
 | ![#ffffff](../img/swatches/ffffff.svg) | Local variables | `#ffffff` |
 | ![#ffcc00](../img/swatches/ffcc00.svg) | Enums & macros | `#ffcc00` |
+| ![#da70d6](../img/swatches/da70d6.svg) | Language constants (`True`, `False`, `None`, `...`) | `#da70d6` |
 | ![#7cb668](../img/swatches/7cb668.svg) | Comments | `#7cb668` |
 | ![#FF0000](../img/swatches/ff0000.svg) | TODO / FIXME tags | `#FF0000` |
 | ![#ff3333](../img/swatches/ff3333.svg) | Cursor | `#ff3333` |
