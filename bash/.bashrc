@@ -6,6 +6,8 @@ alias ...="cd ../.."
 alias back="cd -"
 
 
+alias update-voltage="~/voltage-theme/bash/update-voltage-theme.sh"
+
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
