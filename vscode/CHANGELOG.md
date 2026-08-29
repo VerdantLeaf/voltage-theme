@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+- Coloring for markdown files 
+- Orchid color for language constants 
+
 ## 1.0.1
 
 - Editor/UI chrome (backgrounds, borders, indent guides, line numbers) realigned to match GitHub Dark Default's actual values — was a near-black `#0a0a0a`, now the correct dark blue-gray `#0d1117`.
