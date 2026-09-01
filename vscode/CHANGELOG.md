@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Markdown inline code spans and fenced code blocks now use orchid instead of green, so they read as raw code rather than string literals (both in the editor and the preview pane).
+
 ## 1.0.3
 
 - Fixed bolded/italicized markdown headings falling back to white instead of keeping their heading color.
