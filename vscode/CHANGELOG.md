@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3
+
+- Fixed bolded/italicized markdown headings falling back to white instead of keeping their heading color.
+- Added themed colors for the Markdown preview pane (headings, bold/italic, code, blockquotes, links, strikethrough, table borders), not just the editor.
+
 ## 1.0.2
 
 - Coloring for markdown files 

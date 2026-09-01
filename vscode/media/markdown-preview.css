@@ -1,0 +1,54 @@
+/* Voltage theme colors for the built-in Markdown preview webview. */
+
+.vscode-dark h1,
+.vscode-high-contrast h1 { color: #00d4ff; }
+
+.vscode-dark h2,
+.vscode-high-contrast h2 { color: #ffcc00; }
+
+.vscode-dark h3,
+.vscode-high-contrast h3 { color: #ffa657; }
+
+.vscode-dark h4,
+.vscode-high-contrast h4 { color: #ff6b9d; }
+
+.vscode-dark h5,
+.vscode-high-contrast h5 { color: #da70d6; }
+
+.vscode-dark h6,
+.vscode-high-contrast h6 { color: #4fc1ff; }
+
+.vscode-dark strong,
+.vscode-high-contrast strong { color: #ffffff; }
+
+.vscode-dark em,
+.vscode-high-contrast em { color: #ffdd88; }
+
+.vscode-dark strong em,
+.vscode-dark em strong,
+.vscode-high-contrast strong em,
+.vscode-high-contrast em strong { color: #ffdd88; }
+
+.vscode-dark del,
+.vscode-high-contrast del { color: #7a7a7a; }
+
+.vscode-dark code,
+.vscode-high-contrast code { color: #00ff41; }
+
+.vscode-dark pre code,
+.vscode-high-contrast pre code { color: #00ff41; }
+
+.vscode-dark blockquote,
+.vscode-high-contrast blockquote {
+  color: #7cb668;
+  font-style: italic;
+  border-left-color: #7cb668;
+}
+
+.vscode-dark a,
+.vscode-high-contrast a { color: #82e2ff; }
+
+.vscode-dark table th,
+.vscode-dark table td,
+.vscode-high-contrast table th,
+.vscode-high-contrast table td { border-color: #6e7681; }

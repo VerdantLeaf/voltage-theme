@@ -40,7 +40,7 @@ Each tool gets its own top-level folder. The palette itself is documented once, 
 Grab the packaged extension from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and install it with:
 
 ```
-code --install-extension voltage-theme-1.0.1.vsix
+code --install-extension voltage-theme-1.0.3.vsix
 ```
 
 Or install manually from the file: `Ctrl+Shift+P` → "Extensions: Install from VSIX..." → select the `.vsix`.
