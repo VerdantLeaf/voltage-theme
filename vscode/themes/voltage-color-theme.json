@@ -146,7 +146,7 @@
     { "scope": ["markup.bold markup.italic", "markup.italic markup.bold"], "settings": { "foreground": "#ffdd88", "fontStyle": "bold italic" } },
     { "scope": ["markup.strikethrough"], "settings": { "foreground": "#7a7a7a", "fontStyle": "strikethrough" } },
 
-    { "scope": ["markup.inline.raw", "markup.raw.block"], "settings": { "foreground": "#00ff41" } },
+    { "scope": ["markup.inline.raw", "markup.raw.block"], "settings": { "foreground": "#da70d6" } },
     { "scope": ["fenced_code.block.language"], "settings": { "foreground": "#4fc1ff" } },
 
     { "scope": ["string.other.link.title.markdown", "string.other.link.description.markdown"], "settings": { "foreground": "#00d4ff" } },
