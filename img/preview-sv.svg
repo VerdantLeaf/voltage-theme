@@ -1,55 +1,33 @@
-<svg viewBox="0 0 900 530" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
-  <rect x="0" y="0" width="900" height="530" rx="12" fill="#0a0a0a"/>
-  <rect x="0" y="0" width="900" height="530" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <rect x="0" y="0" width="900" height="560" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="560" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
 
   <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
   <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
   <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
   <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
   <circle cx="68" cy="20" r="6" fill="#27c93f"/>
-  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">queue.sv — Voltage</text>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">tile_commit_engine.sv — Voltage</text>
 
   <g font-size="18">
-    <text x="30" y="80">
-      <tspan fill="#ffa657">module </tspan><tspan fill="#00d4ff">queue </tspan><tspan fill="#ffffff">#(</tspan>
-    </text>
-    <text x="65" y="110">
-      <tspan fill="#ffa657">type      </tspan><tspan fill="#4fc1ff">queue_data_t</tspan><tspan fill="#ffffff">,</tspan>
-    </text>
-    <text x="65" y="140">
-      <tspan fill="#ffa657">parameter </tspan><tspan fill="#ffdd88">DEPTH </tspan><tspan fill="#ffffff">= </tspan><tspan fill="#ff6b9d">16</tspan>
-    </text>
-    <text x="30" y="170" fill="#ffffff">) (</text>
-    <text x="65" y="200">
-      <tspan fill="#4fc1ff">input  logic </tspan><tspan fill="#ffdd88">write_en</tspan><tspan fill="#ffffff">,</tspan>
-    </text>
-    <text x="65" y="230">
-      <tspan fill="#4fc1ff">input  logic </tspan><tspan fill="#ffdd88">read_en</tspan><tspan fill="#ffffff">,</tspan>
-    </text>
-    <text x="65" y="260">
-      <tspan fill="#4fc1ff">output </tspan><tspan fill="#4fc1ff">queue_data_t </tspan><tspan fill="#ffdd88">data_out</tspan><tspan fill="#ffffff">,</tspan>
-    </text>
-    <text x="65" y="290">
-      <tspan fill="#4fc1ff">output logic </tspan><tspan fill="#ffdd88">empty</tspan><tspan fill="#ffffff">,</tspan>
-    </text>
-    <text x="65" y="320">
-      <tspan fill="#4fc1ff">output logic </tspan><tspan fill="#ffdd88">full</tspan>
-    </text>
-    <text x="30" y="350" fill="#ffffff">);</text>
+    <text x="30" y="78"><tspan fill="#7cb668">// downstream of cmte gate</tspan></text>
+    <text x="30" y="106"><tspan fill="#ff6b9d">module </tspan><tspan fill="#7bafd4">tile_commit_engine </tspan><tspan fill="#ffffff">(</tspan></text>
+    <text x="65" y="134"><tspan fill="#ffa657">input  </tspan><tspan fill="#7bafd4">logic </tspan><tspan fill="#ffffff">clk_i,</tspan></text>
+    <text x="65" y="162"><tspan fill="#ffa657">input  </tspan><tspan fill="#7bafd4">logic </tspan><tspan fill="#ffffff">reset_i,</tspan></text>
+    <text x="65" y="190"><tspan fill="#ffa657">output </tspan><tspan fill="#7bafd4">logic </tspan><tspan fill="#ffffff">ready_o</tspan></text>
+    <text x="30" y="218" fill="#ffffff">);</text>
 
-    <text x="65" y="390">
-      <tspan fill="#ffa657">localparam </tspan><tspan fill="#ffdd88">PTR_W </tspan><tspan fill="#ffffff">= </tspan><tspan fill="#82e2ff">$clog2</tspan><tspan fill="#ffffff">(DEPTH); </tspan><tspan fill="#7cb668">// rounds up for non-powers of two</tspan>
-    </text>
+    <text x="65" y="256"><tspan fill="#ff6b9d">always_ff </tspan><tspan fill="#ffffff">@(</tspan><tspan fill="#ff6b9d">posedge </tspan><tspan fill="#ffffff">clk_i) </tspan><tspan fill="#ff6b9d">begin</tspan></text>
+    <text x="90" y="284"><tspan fill="#ff6b9d">if </tspan><tspan fill="#ffffff">(reset_i) ready_r </tspan><tspan fill="#ffcc00">&lt;= </tspan><tspan fill="#ffaa44">1'b0;</tspan></text>
+    <text x="90" y="312"><tspan fill="#ff6b9d">else </tspan><tspan fill="#ffffff">ready_r </tspan><tspan fill="#ffcc00">&lt;= </tspan><tspan fill="#ffaa44">1'b1;</tspan></text>
+    <text x="65" y="340"><tspan fill="#ff6b9d">end</tspan></text>
 
-    <text x="65" y="430">
-      <tspan fill="#4fc1ff">logic </tspan><tspan fill="#ffffff">[PTR_W : 0] </tspan><tspan fill="#ffffff">write_ptr;</tspan>
-    </text>
-    <text x="65" y="460">
-      <tspan fill="#4fc1ff">logic </tspan><tspan fill="#ffffff">[PTR_W : 0] </tspan><tspan fill="#ffffff">read_ptr;</tspan>
-    </text>
+    <text x="65" y="378"><tspan fill="#ff6b9d">assign </tspan><tspan fill="#ffffff">ready_o </tspan><tspan fill="#ffcc00">= </tspan><tspan fill="#ffffff">ready_r;</tspan></text>
+    <text x="30" y="406"><tspan fill="#ff6b9d">endmodule</tspan></text>
 
-    <text x="65" y="500">
-      <tspan fill="#ffa657">assign </tspan><tspan fill="#ffffff">empty = (write_ptr == read_ptr);</tspan>
-    </text>
+    <text x="30" y="450"><tspan fill="#7cb668">// instantiate</tspan></text>
+    <text x="30" y="478"><tspan fill="#7bafd4">tile_commit_engine </tspan><tspan fill="#ffffff">u_engine (</tspan></text>
+    <text x="65" y="506"><tspan fill="#ffffff">.</tspan><tspan fill="#daa520">clk_i</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#cfa3e6">clk</tspan><tspan fill="#ffffff">), .</tspan><tspan fill="#daa520">ready_o</tspan><tspan fill="#ffffff">(</tspan><tspan fill="#cfa3e6">ready</tspan><tspan fill="#ffffff">)</tspan></text>
+    <text x="30" y="534" fill="#ffffff">);</text>
   </g>
 </svg>

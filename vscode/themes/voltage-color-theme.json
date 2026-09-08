@@ -90,9 +90,31 @@
     { "scope": ["variable", "variable.other.readwrite"], "settings": { "foreground": "#ffffff" } },
     { "scope": ["variable.parameter"], "settings": { "foreground": "#ffdd88" } },
     { "scope": ["variable.other.property", "variable.other.object.property", "support.variable.property", "variable.other.object.member", "meta.struct.variable"], "settings": { "foreground": "#ff6b9d" } },
-    { "scope": ["meta.port-net-parameter.declaration.systemverilog variable.other.identifier.systemverilog"], "settings": { "foreground": "#ffdd88" } },
-    { "scope": ["support.type.direction.systemverilog", "storage.type.vector.systemverilog"], "settings": { "foreground": "#4fc1ff" } },
+    { "scope": ["comment.line.double-slash.systemverilog", "comment.block.systemverilog"], "settings": { "foreground": "#7cb668" } },
+
+    { "scope": ["storage.type.built-in.systemverilog", "storage.type.vector.systemverilog", "storage.type.net.systemverilog", "storage.type.atom.systemverilog", "storage.type.notint.systemverilog", "storage.type.user-defined.systemverilog"], "settings": { "foreground": "#7bafd4" } },
+    { "scope": ["support.type.direction.systemverilog"], "settings": { "foreground": "#ffa657" } },
+    { "scope": ["storage.modifier.systemverilog"], "settings": { "foreground": "#da70d6" } },
+    { "scope": ["meta.port-net-parameter.declaration.systemverilog variable.other.identifier.systemverilog"], "settings": { "foreground": "#ffffff" } },
+
+    { "scope": ["meta.brackets.select.systemverilog constant.numeric", "meta.brackets.select.systemverilog constant.numeric.parameter.uppercase.systemverilog"], "settings": { "foreground": "#ffffff" } },
+    { "scope": ["meta.brackets.select.systemverilog keyword.operator"], "settings": { "foreground": "#ffffff" } },
+
+    { "scope": ["keyword.control.systemverilog"], "settings": { "foreground": "#ff6b9d" } },
+    { "scope": ["keyword.operator.systemverilog", "keyword.operator.arithmetic.systemverilog", "keyword.operator.assignment.systemverilog", "keyword.operator.bitwise.systemverilog", "keyword.operator.bitwise.shift.systemverilog", "keyword.operator.comparison.systemverilog", "keyword.operator.logical.systemverilog", "keyword.operator.increment.systemverilog", "keyword.operator.decrement.systemverilog", "keyword.operator.scope.systemverilog", "keyword.operator.cast.systemverilog", "keyword.operator.param.systemverilog", "keyword.operator.other.systemverilog"], "settings": { "foreground": "#ffcc00" } },
+
+    { "scope": ["entity.name.type.module.systemverilog"], "settings": { "foreground": "#7bafd4" } },
+    { "scope": ["entity.name.function.systemverilog"], "settings": { "foreground": "#82e2ff" } },
     { "scope": ["variable.other.identifier.systemverilog"], "settings": { "foreground": "#ffffff" } },
+
+    { "scope": ["variable.other.module.systemverilog"], "settings": { "foreground": "#ffffff" } },
+    { "scope": ["support.function.port.systemverilog"], "settings": { "foreground": "#daa520" } },
+    { "scope": ["meta.port.binding.systemverilog variable.other.identifier.systemverilog"], "settings": { "foreground": "#cfa3e6" } },
+
+    { "scope": ["constant.language.systemverilog"], "settings": { "foreground": "#da70d6" } },
+    { "scope": ["constant.numeric.systemverilog", "constant.numeric.decimal.systemverilog", "constant.numeric.bit.systemverilog", "constant.numeric.exp.systemverilog", "constant.numeric.time.systemverilog"], "settings": { "foreground": "#ffaa44" } },
+
+    { "scope": ["string.quoted.double.systemverilog"], "settings": { "foreground": "#00ff41" } },
     { "scope": ["variable.language", "variable.other.constant"], "settings": { "foreground": "#00d4ff" } },
     { "scope": ["variable.other.enummember", "constant.other.enum"], "settings": { "foreground": "#ffcc00" } },
     { "scope": ["entity.name.function.preprocessor", "meta.preprocessor.macro"], "settings": { "foreground": "#ffcc00" } },
