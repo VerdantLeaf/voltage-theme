@@ -26,7 +26,9 @@ For rainbow bracket-pair guides, also add this to your own `settings.json` — t
 }
 ```
 
-Voltage doesn't bundle file icons, but if you have [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) installed, these are the folder/file tint colors used alongside Voltage:
+## Recommended Extensions
+
+**File Icons:** Voltage doesn't bundle file icons, but if you have [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) installed, these folder/file tint colors pair well with Voltage:
 
 ```json
 {

@@ -32,11 +32,69 @@
 .vscode-dark del,
 .vscode-high-contrast del { color: #7a7a7a; }
 
-.vscode-dark code,
-.vscode-high-contrast code { color: #da70d6; }
+.vscode-dark code:not(pre code),
+.vscode-high-contrast code:not(pre code) { color: #ffaa44; }
 
-.vscode-dark pre code,
-.vscode-high-contrast pre code { color: #da70d6; }
+/* Voltage syntax highlighting for fenced code blocks (Highlight.js tokens) */
+pre code { color: #ffffff !important; }
+
+/* Reset all hljs colors, then apply Voltage theme */
+.hljs,
+.hljs-attr,
+.hljs-string,
+.hljs-number,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type,
+.hljs-class,
+.hljs-title,
+.hljs-title.class_,
+.hljs-function,
+.hljs-function .hljs-title,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-comment,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-variable,
+.hljs-constant,
+.hljs-symbol,
+.hljs-operator,
+.hljs-punctuation {
+  color: inherit;
+}
+
+.hljs-attr { color: #00d4ff !important; }
+.hljs-string { color: #00ff41 !important; }
+.hljs-number { color: #ff6b9d !important; }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal { color: #ff6b9d !important; }
+
+.hljs-type,
+.hljs-class,
+.hljs-title.class_ { color: #4fc1ff !important; }
+
+.hljs-function .hljs-title,
+.hljs-title { color: #00d4ff !important; }
+
+.hljs-built_in,
+.hljs-builtin-name { color: #82e2ff !important; }
+
+.hljs-comment { color: #7cb668 !important; }
+
+.hljs-meta,
+.hljs-meta .hljs-keyword { color: #ffcc00 !important; }
+
+.hljs-variable { color: #ffffff !important; }
+
+.hljs-constant,
+.hljs-symbol { color: #da70d6 !important; }
+
+.hljs-operator { color: #ffffff !important; }
+
+.hljs-punctuation { color: #ffffff !important; }
 
 .vscode-dark blockquote,
 .vscode-high-contrast blockquote {
