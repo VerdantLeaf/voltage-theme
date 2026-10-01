@@ -34,7 +34,6 @@ alias gc="git commit"
 alias gp="git push"
 alias gl="git log --oneline --graph --decorate"
 
-alias lz="du -ahd 1 | sort -h"
 alias df="df -h"
 alias du="du -h"
 alias free="free -h"
@@ -48,6 +47,18 @@ alias less="less -R -N"
 alias less="less -R -N"
 
 alias python="python3"
+
+# Get sizes of dirs and files using du, but map to lz and make it colorful
+unalias lz 2>/dev/null
+lz() {
+    du -ahd 1 "${@:-.}" | sort -h | while IFS=$'\t' read -r size path; do
+        if [ -d "$path" ]; then
+            printf '%s\t\e[1;34m%s\e[0m\n' "$size" "$path"
+        else
+            printf '%s\t%s\n' "$size" "$path"
+        fi
+    done
+}
 
 # Map .. to go up one directory, optionally into a subdirectory with .. <directory_name>
 ..() {
