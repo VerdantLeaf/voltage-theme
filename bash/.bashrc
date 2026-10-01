@@ -49,7 +49,6 @@ alias less="less -R -N"
 alias python="python3"
 
 # Get sizes of dirs and files using du, but map to lz and make it colorful
-unalias lz 2>/dev/null
 lz() {
     du -ahd 1 "${@:-.}" | sort -h | while IFS=$'\t' read -r size path; do
         if [ -d "$path" ]; then
