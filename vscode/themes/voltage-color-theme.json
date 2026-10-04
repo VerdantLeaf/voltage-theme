@@ -719,7 +719,7 @@
     },
     {
       "scope": [
-        "variable.other.object.property.json"
+        "support.type.property-name.json"
       ],
       "settings": {
         "foreground": "#00d4ff"
@@ -730,23 +730,97 @@
         "string.quoted.double.json"
       ],
       "settings": {
-        "foreground": "#7fd99a"
+        "foreground": "#6fe09f"
       }
     },
     {
       "scope": [
-        "constant.numeric.json"
+        "constant.character.escape.json",
+        "constant.character.escape.yaml",
+        "constant.character.escape.toml"
+      ],
+      "settings": {
+        "foreground": "#ffcc00"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.tag.yaml"
+      ],
+      "settings": {
+        "foreground": "#00d4ff"
+      }
+    },
+    {
+      "scope": [
+        "source.yaml string"
+      ],
+      "settings": {
+        "foreground": "#6fe09f"
+      }
+    },
+    {
+      "scope": [
+        "string.unquoted.block.yaml"
+      ],
+      "settings": {
+        "foreground": "#ffffff"
+      }
+    },
+    {
+      "scope": [
+        "keyword.control.flow.anchor.yaml",
+        "keyword.control.flow.alias.yaml",
+        "variable.other.anchor.yaml",
+        "variable.other.alias.yaml"
+      ],
+      "settings": {
+        "foreground": "#ffdd88"
+      }
+    },
+    {
+      "scope": [
+        "entity.other.document.begin.yaml",
+        "entity.other.document.end.yaml"
+      ],
+      "settings": {
+        "foreground": "#6e7681"
+      }
+    },
+    {
+      "scope": [
+        "support.type.property-name.toml"
+      ],
+      "settings": {
+        "foreground": "#00d4ff"
+      }
+    },
+    {
+      "scope": [
+        "support.type.property-name.table.toml",
+        "support.type.property-name.array.toml"
+      ],
+      "settings": {
+        "foreground": "#ffa657"
+      }
+    },
+    {
+      "scope": [
+        "source.toml string.quoted"
+      ],
+      "settings": {
+        "foreground": "#6fe09f"
+      }
+    },
+    {
+      "scope": [
+        "constant.other.time.date.toml",
+        "constant.other.time.datetime.local.toml",
+        "constant.other.time.datetime.offset.toml",
+        "constant.other.time.time.toml"
       ],
       "settings": {
         "foreground": "#ff6b9d"
-      }
-    },
-    {
-      "scope": [
-        "constant.language.json"
-      ],
-      "settings": {
-        "foreground": "#da70d6"
       }
     }
   ]

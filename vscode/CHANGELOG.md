@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- Added YAML and TOML support, and fixed JSON key coloring.
+- Strings in JSON, YAML, and TOML use a softer green (`#6fe09f`); YAML block scalars are white.
+
 ## 1.1.1
 
 - JSON string values now use a softer green (`#7fd99a`) instead of the bright string green, so long values no longer overpower the keys.
