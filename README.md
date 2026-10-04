@@ -26,7 +26,8 @@ voltage/
 │   ├── voltage-logo.svg
 │   ├── preview-c.svg
 │   ├── preview-sv.svg
-│   └── preview-python.svg
+│   ├── preview-python.svg
+│   └── preview-json.svg
 ├── LICENSE
 └── README.md
 ```
@@ -101,6 +102,12 @@ See [`docs/palette.md`](docs/palette.md) for the full color table.
 
 <p align="center">
   <img src="img/preview-python.svg" width="700" alt="Voltage theme preview — Python"/>
+</p>
+
+**JSON:**
+
+<p align="center">
+  <img src="img/preview-json.svg" width="700" alt="Voltage theme preview — JSON"/>
 </p>
 
 > The listed previews are mockups with code from different open source projects

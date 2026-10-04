@@ -1,0 +1,68 @@
+<svg viewBox="0 0 900 630" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <rect x="0" y="0" width="900" height="630" rx="12" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="900" height="630" rx="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#0d0d0d"/>
+  <rect x="0" y="28" width="900" height="12" fill="#0d0d0d"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="450" y="25" text-anchor="middle" fill="#8b8b8b" font-size="13">example.json</text>
+
+  <g font-size="18">
+    <text x="30" y="80">
+      <tspan fill="#ffffff">{</tspan>
+    </text>
+    <text x="65" y="110">
+      <tspan fill="#00d4ff">"name"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"voltage-theme"</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="140">
+      <tspan fill="#00d4ff">"version"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"1.1.1"</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="170">
+      <tspan fill="#00d4ff">"description"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"A high-contrast, vibrant dark theme"</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="200">
+      <tspan fill="#00d4ff">"preview"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#da70d6">false</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="230">
+      <tspan fill="#00d4ff">"galleryOrder"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#ff6b9d">3</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="260">
+      <tspan fill="#00d4ff">"galleryBanner"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#da70d6">null</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="65" y="290">
+      <tspan fill="#00d4ff">"engines"</tspan><tspan fill="#ffffff">: {</tspan>
+    </text>
+    <text x="100" y="320">
+      <tspan fill="#00d4ff">"vscode"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"^1.80.0"</tspan>
+    </text>
+    <text x="65" y="350">
+      <tspan fill="#ffffff">},</tspan>
+    </text>
+    <text x="65" y="380">
+      <tspan fill="#00d4ff">"contributes"</tspan><tspan fill="#ffffff">: {</tspan>
+    </text>
+    <text x="100" y="410">
+      <tspan fill="#00d4ff">"themes"</tspan><tspan fill="#ffffff">: [{</tspan>
+    </text>
+    <text x="135" y="440">
+      <tspan fill="#00d4ff">"label"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"Voltage"</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="135" y="470">
+      <tspan fill="#00d4ff">"uiTheme"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"vs-dark"</tspan><tspan fill="#ffffff">,</tspan>
+    </text>
+    <text x="135" y="500">
+      <tspan fill="#00d4ff">"path"</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#7fd99a">"./themes/voltage-color-theme.json"</tspan>
+    </text>
+    <text x="100" y="530">
+      <tspan fill="#ffffff">}]</tspan>
+    </text>
+    <text x="65" y="560">
+      <tspan fill="#ffffff">}</tspan>
+    </text>
+    <text x="30" y="590">
+      <tspan fill="#ffffff">}</tspan>
+    </text>
+  </g>
+</svg>
