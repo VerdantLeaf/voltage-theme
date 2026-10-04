@@ -189,7 +189,7 @@
       ], "settings": { "foreground": "#6e7681" } },
 
     { "scope": ["variable.other.object.property.json"], "settings": { "foreground": "#00d4ff" } },
-    { "scope": ["string.quoted.double.json"], "settings": { "foreground": "#00ff41" } },
+    { "scope": ["string.quoted.double.json"], "settings": { "foreground": "#7fd99a" } },
     { "scope": ["constant.numeric.json"], "settings": { "foreground": "#ff6b9d" } },
     { "scope": ["constant.language.json"], "settings": { "foreground": "#da70d6" } }
   ]

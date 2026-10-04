@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- JSON string values now use a softer green (`#7fd99a`) instead of the bright string green, so long values no longer overpower the keys.
+
 ## 1.1.0
 
 - SystemVerilog overhaul: types (`logic`, user-defined types) and module names now share a Carolina-blue tone, directions (`input`/`output`/`inout`) get their own warm orange, and modifiers (`signed`, `static`, `packed`, ...) are orchid — replacing the old scheme where directions, user-defined types, and port signal names all rendered as the same orange.
