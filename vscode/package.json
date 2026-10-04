@@ -1,8 +1,8 @@
 {
   "name": "voltage-theme",
-  "displayName": "Voltage",
+  "displayName": "Voltage Theme",
   "description": "A high-contrast, vibrant dark theme with clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publisher": "VerdantLeaf",
   "license": "MIT",
   "icon": "icon.png",

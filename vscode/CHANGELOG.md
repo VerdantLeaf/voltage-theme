@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+- Renamed the extension display name to "Voltage Theme".
+
 ## 1.2.0
 
 - Added YAML and TOML support, and fixed JSON key coloring.
