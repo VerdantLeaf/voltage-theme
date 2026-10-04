@@ -110,15 +110,6 @@ See [`docs/palette.md`](docs/palette.md) for the full color table.
   <img src="img/preview-json.svg" width="700" alt="Voltage theme preview — JSON"/>
 </p>
 
-> The listed previews are mockups with code from different open source projects
-
-## Language-specific notes
-
-- **C/C++**: struct/object member access (e.g. `x` in `threadIdx.x`) is colored separately from the base identifier.
-- **SystemVerilog**: types (`logic`, user-defined types) and module names share a Carolina-blue tone; `input`/`output`/`inout` get their own warm orange; modifiers (`signed`, `static`, etc.) are orchid. Module instantiations get their own trio: instance names are white, connected port names are dark goldenrod, and the wired-in signals are a soft lavender — so a `.port(signal)` binding reads as two distinct colors instead of one blur.
-- **Tcl**: commands match function color, variables are white, flags/options are orange, control keywords are pink-red.
-- **Python**: `and` / `or` / `not` in conditionals get their own gold color, matching enums/macros.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
