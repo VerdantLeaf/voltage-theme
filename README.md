@@ -6,6 +6,8 @@ This project originated with my dissatisfaction with every color theme I seemed 
 
 So, I made **Voltage** - No dimming, no washed out colors, but a rich set of vibrant colors against a clean dark background with customization throughout for different languages. 
 
+Voltage is available on the VSCode marketplace at -- https://marketplace.visualstudio.com/items?itemName=VerdantLeaf.voltage-theme
+
 <p align="center">
   <img src="img/voltage-logo.svg" width="220" alt="Voltage logo"/>
 </p>
