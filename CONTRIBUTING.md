@@ -41,10 +41,6 @@ A few things follow from that:
   (e.g. a new language's full token set), major (`x.0.0`) for breaking changes to how
   the theme is packaged or installed.
 
-## VSCode Marketplace
-
-I am currently considering whether to put Voltage on the VSCode marketplace. 
-
 ## Installing your own build
 
 To test a change locally before it's released:
