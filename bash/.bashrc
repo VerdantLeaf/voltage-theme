@@ -45,6 +45,7 @@ alias update-voltage="~/voltage-theme/bash/update-voltage-theme.sh"
 alias less="less -R -N"
 
 alias less="less -R -N"
+alias nano="nano -l -E -i -S -m -B"
 
 alias python="python3"
 
