@@ -49,3 +49,11 @@ Module instantiations get a dedicated trio so a `.port(signal)` binding reads as
 - **C/C++**: struct/object member access (e.g. `x` in `threadIdx.x`) is colored separately from the base identifier.
 - **Tcl**: commands match function color, variables are white, flags/options are orange, control keywords are pink-red.
 - **Python**: `and` / `or` / `not` in conditionals are gold as well (`#ffcc00`), matching enums/macros.
+
+## nano
+
+nano's syntax files follow the same mapping as the tables above (strings green, control flow pink, types blue, ...), with two limits: nano only has the 256-color terminal palette, so every hex value is snapped to its nearest slot (e.g. `#ffa657` and `#ffaa44` both land on slot 215), and its regex-based highlighting can't tell parameters from locals or find function declarations. On nano older than 6.0 the slots are further reduced to nano's named colors.
+
+## Vim & Neovim
+
+`vim/colors/voltage.vim` uses every hex value in the tables above directly (truecolor), so the colors match VS Code exactly. Without a 24-bit terminal it degrades to the nearest 256-color slot, as nano does. Vim's regex-based syntax can't separate parameters or declarations; Neovim with Treesitter/LSP can.

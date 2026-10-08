@@ -10,6 +10,21 @@ The theme lives at `vscode/themes/voltage-color-theme.json`. If you add or chang
 color, also update the swatch table in `docs/palette.md` so the palette stays
 documented in one place.
 
+## Changing the nano theme
+
+The nano theme lives in `nano/` (`voltage.nanorc` for the interface and `nano/syntax/*.nanorc` for
+languages). nano < 6 can't take hex colors, so the files use xterm-256 color indices — pick the
+slot nearest to the palette hex — and `nano/install.sh` has a table that maps those indices to color
+names for older nano. If you introduce a new index, add it to that table (`NAMES` in `install.sh`).
+Note that inside a POSIX bracket expression a backslash is literal; write `[][(){}]`, not `[\[\](){}]`.
+
+## Changing the Vim/Neovim colorscheme
+
+Everything lives in `vim/colors/voltage.vim`. Colors are written once as hex in the palette block at
+the top; the 256-color fallback is computed from them, so never hard-code a cterm value. Add
+new language groups next to the existing per-language blocks, and the Treesitter/LSP equivalents
+in the `has('nvim')` section so Neovim and Vim stay in step.
+
 ## Releasing
 
 Releases are built and published automatically by
@@ -41,6 +56,22 @@ A few things follow from that:
   (e.g. a new language's full token set), major (`x.0.0`) for breaking changes to how
   the theme is packaged or installed.
 
+### Vim/Neovim releases
+
+Same flow with its own files: bump `vim/VERSION`, add a `## X.Y.Z` section to `vim/CHANGELOG.md`, and merge to
+`main`. [`release-vim.yml`](.github/workflows/release-vim.yml) publishes `vim-vX.Y.Z` with
+`voltage-vim-X.Y.Z.tar.gz`, not marked "latest". The VS Code, nano and Vim/Neovim release streams are
+independent: each is triggered only by its own version file.
+
+### nano releases
+
+nano is released independently of the VS Code extension. Bump `nano/VERSION`, add a matching
+`## X.Y.Z` section to `nano/CHANGELOG.md`, and merge to `main`;
+[`.github/workflows/release-nano.yml`](.github/workflows/release-nano.yml) publishes a release tagged
+`nano-vX.Y.Z` with a `voltage-nano-X.Y.Z.tar.gz` attached. The same rules apply as above (idempotent, no
+release without a version bump). Changes under `nano/` never trigger a VS Code release and vice versa.
+The nano release is deliberately not marked "latest" so the VS Code updater script keeps working.
+
 ## Installing your own build
 
 To test a change locally before it's released:
@@ -50,3 +81,6 @@ cd vscode
 npx @vscode/vsce package
 code --install-extension voltage-theme-<version>.vsix
 ```
+
+For nano, run `./nano/install.sh` from your checkout (and `./nano/install.sh --uninstall` to remove it).
+For Vim/Neovim, run `./vim/install.sh` from your checkout (`--uninstall` to remove).
