@@ -1,0 +1,32 @@
+## Voltage - SystemVerilog
+syntax "voltage-sv" "\.(sv|svh|v|vh)$"
+
+# operators
+color 220 "[-+*/%&|^~!<>=?]+"
+# function / task calls and system tasks
+color 117 "\<[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\("
+color 117 "\$[A-Za-z_][A-Za-z0-9_]*"
+# module / interface / package names
+color 110 "\<(module|interface|package|program|class)[[:space:]]+[A-Za-z_][A-Za-z0-9_]*"
+# types
+color 110 "\<(logic|bit|reg|wire|tri|int|integer|byte|shortint|longint|time|real|string|genvar|parameter|localparam|typedef|enum|struct|union)\>"
+# port directions
+color 215 "\<(input|output|inout|ref)\>"
+# modifiers & language constants
+color 170 "\<(signed|unsigned|static|automatic|packed|const|var|virtual|local|protected)\>"
+color 170 "\<(null|this|super)\>"
+# control flow
+color 205 "\<(always_ff|always_comb|always_latch|always|initial|final|if|else|begin|end|assign|case|casez|casex|endcase|default|for|foreach|while|repeat|forever|generate|endgenerate|return|break|continue|posedge|negedge|or|iff)\>"
+color 215 "\<(module|endmodule|interface|endinterface|package|endpackage|program|endprogram|class|endclass|function|endfunction|task|endtask|modport|clocking|endclocking)\>"
+# numeric literals
+color 215 "\<[0-9_]*'[sS]?[bBoOdDhH][0-9a-fA-F_xXzZ?]+\>|\<[0-9][0-9_]*\>"
+# port bindings: .port(signal)  - signal lavender, port name goldenrod
+color 182 "\.[A-Za-z_][A-Za-z0-9_$]*[[:space:]]*\([[:space:]]*[A-Za-z_][A-Za-z0-9_$.]*"
+color 178 "\.[A-Za-z_][A-Za-z0-9_$]*[[:space:]]*\("
+color 231 "[][(){}.,:;#@]"
+# preprocessor
+color 220 "`[A-Za-z_][A-Za-z0-9_]*"
+color 47 "\"([^\"\\]|\\.)*\""
+color 107 "//.*"
+color 107 start="/\*" end="\*/"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

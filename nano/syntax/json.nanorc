@@ -1,0 +1,11 @@
+## Voltage - JSON
+syntax "voltage-json" "\.(json|jsonc|json5)$"
+
+color 205 "-?\<[0-9]+(\.[0-9]+)?([eE][-+]?[0-9]+)?\>"
+color 170 "\<(true|false|null)\>"
+color 79 "\"([^\"\\]|\\.)*\""
+color 220 "\\(u[0-9A-Fa-f]{4}|.)"
+color 45 "\"([^\"\\]|\\.)*\"[[:space:]]*:"
+color 231 "[][{}:,]"
+color 107 "//.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

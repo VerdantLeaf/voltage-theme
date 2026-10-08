@@ -1,0 +1,15 @@
+## Voltage - TOML
+syntax "voltage-toml" "\.toml$"
+
+color 205 "\<[-+]?[0-9][0-9_]*(\.[0-9_]+)?([eE][-+]?[0-9]+)?\>"
+color 205 "[0-9]{4}-[0-9]{2}-[0-9]{2}([T ][0-9:.]+(Z|[-+][0-9:]+)?)?"
+color 170 "\<(true|false|inf|nan)\>"
+color 79 "'[^']*'"
+color 79 "\"([^\"\\]|\\.)*\""
+color 220 "\\(u[0-9A-Fa-f]{4}|.)"
+# keys, then tables
+color 45 "^[[:space:]]*[A-Za-z0-9_.\"-]+[[:space:]]*="
+color 215 "^[[:space:]]*\[\[?[^]]+\]\]?"
+color 231 "[][{}=,.]"
+color 107 "(^|[[:space:]])#.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

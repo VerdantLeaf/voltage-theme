@@ -1,0 +1,32 @@
+## Voltage - C / C++ / CUDA
+syntax "voltage-c" "\.(c|h|cc|cpp|cxx|hpp|hh|cu|cuh)$"
+
+# member access (threadIdx.x, p->len)
+color 205 "(\.|->)[A-Za-z_][A-Za-z0-9_]*"
+# function calls
+color 117 "\<[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\("
+# types
+color 75 "\<[A-Za-z_][A-Za-z0-9_]*_t\>"
+color 75 "\<(struct|union|enum|class|typename)[[:space:]]+[A-Za-z_][A-Za-z0-9_]*"
+# enums & macros (ALL_CAPS)
+color 220 "\<[A-Z][A-Z0-9_]+\>"
+# declaration keywords
+color 215 "\<(auto|bool|char|const|constexpr|double|enum|extern|float|inline|int|long|namespace|register|short|signed|sizeof|static|struct|template|typedef|typename|union|unsigned|using|virtual|void|volatile|class|public|private|protected|__global__|__device__|__host__|__shared__)\>"
+# control flow
+color 205 "\<(if|else|for|while|do|switch|case|default|break|continue|return|goto|try|catch|throw|new|delete)\>"
+# language constants
+color 170 "\<(NULL|nullptr|true|false)\>"
+# numbers
+color 205 "\<(0[xX][0-9A-Fa-f]+|[0-9]+(\.[0-9]+)?([eE][-+]?[0-9]+)?)[uUlLfF]*\>"
+# punctuation stays plain
+color 231 "[(){}.,;]"
+# preprocessor
+color 47 "^[[:space:]]*#[[:space:]]*include[[:space:]]*<[^>]*>"
+color 220 "^[[:space:]]*#[[:space:]]*[a-z]+"
+# strings & chars
+color 47 "'([^'\\]|\\.)*'"
+color 47 "\"([^\"\\]|\\.)*\""
+# comments
+color 107 "//.*"
+color 107 start="/\*" end="\*/"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

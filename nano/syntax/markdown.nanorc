@@ -1,0 +1,27 @@
+## Voltage - Markdown
+syntax "voltage-markdown" "\.(md|markdown)$"
+
+# lists, quotes, rules
+color 215 "^[[:space:]]*([-*+]|[0-9]+\.)[[:space:]]"
+color 107 "^>.*"
+color 243 "^(---|\*\*\*|___)[[:space:]]*$"
+# emphasis
+color italic,222 "(^|[^*])\*[^*]+\*"
+color italic,222 "(^|[^_])_[^_]+_"
+color bold,231 "\*\*[^*]+\*\*"
+color bold,231 "__[^_]+__"
+color 243 "~~[^~]+~~"
+# links
+color 45 "\[[^]]*\]"
+color 117 "\]\([^)]*\)"
+# inline code
+color 215 "`[^`]+`"
+# headings (h1 cyan, h2 gold, h3 orange, h4 pink, h5 orchid, h6 blue)
+color bold,45 "^# .*"
+color bold,220 "^## .*"
+color bold,215 "^### .*"
+color bold,205 "^#### .*"
+color bold,170 "^##### .*"
+color bold,75 "^###### .*"
+# fenced code
+color 215 start="^```" end="^```"

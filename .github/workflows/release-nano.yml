@@ -1,0 +1,72 @@
+name: Release nano theme
+
+# Fires whenever nano/VERSION changes on main. If that version has no matching
+# "nano-vX.Y.Z" GitHub Release yet, packages the nano theme and publishes one.
+# Independent of the VS Code release (release.yml): separate tag prefix,
+# separate version file, separate changelog.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - nano/VERSION
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(tr -d '[:space:]' < nano/VERSION)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=nano-v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check if this version was already released
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Package theme
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          NAME="voltage-nano-${{ steps.version.outputs.version }}"
+          tar czf "$NAME.tar.gz" --transform "s,^nano,$NAME," nano
+
+      - name: Extract changelog section for this version
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          awk -v ver="${{ steps.version.outputs.version }}" '
+            $0 ~ "^## " ver "$" { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' nano/CHANGELOG.md > release_notes.md
+          if [ ! -s release_notes.md ]; then
+            echo "Voltage nano ${{ steps.version.outputs.tag }}" > release_notes.md
+          fi
+
+      - name: Create GitHub release
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # --latest=false: the "latest" release stays the VS Code one, which
+          # bash/update-voltage-theme.sh downloads.
+          gh release create "${{ steps.version.outputs.tag }}" \
+            "voltage-nano-${{ steps.version.outputs.version }}.tar.gz" \
+            --title "Voltage nano v${{ steps.version.outputs.version }}" \
+            --notes-file release_notes.md \
+            --latest=false

@@ -1,0 +1,25 @@
+## Voltage - Python
+syntax "voltage-python" "\.pyi?$"
+header "^#!.*python"
+
+color 117 "\<[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\("
+color 205 "\.[A-Za-z_][A-Za-z0-9_]*"
+color 117 "\.[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\("
+# declarations: def name / class Name
+color 45 "\<def[[:space:]]+[A-Za-z_][A-Za-z0-9_]*"
+color 75 "\<class[[:space:]]+[A-Za-z_][A-Za-z0-9_]*"
+color 215 "\<(def|class|lambda|global|nonlocal|async)\>"
+color 205 "\<(if|elif|else|for|while|try|except|finally|with|return|yield|raise|break|continue|pass|import|from|as|assert|del|await|match|case)\>"
+# and / or / not / in / is
+color 220 "\<(and|or|not|in|is)\>"
+color 45 "\<(self|cls)\>"
+color 170 "\<(True|False|None)\>|\.\.\."
+color 205 "\<[0-9][0-9_]*(\.[0-9_]+)?([eE][-+]?[0-9]+)?\>|\<0[xXbBoO][0-9A-Fa-f_]+\>"
+color 220 "^[[:space:]]*@[A-Za-z_][A-Za-z0-9_.]*"
+color 231 "[(){}.,:]"
+color 47 "'([^'\\]|\\.)*'"
+color 47 "\"([^\"\\]|\\.)*\""
+color 47 start="[rRbBfF]?\"\"\"" end="\"\"\""
+color 47 start="[rRbBfF]?'''" end="'''"
+color 107 "#.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

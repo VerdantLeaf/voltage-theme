@@ -1,0 +1,18 @@
+## Voltage - Tcl (incl. SDC / XDC constraint files)
+syntax "voltage-tcl" "\.(tcl|sdc|xdc|tk)$"
+header "^#!.*(tclsh|wish)"
+
+# commands (first word of a statement)
+color 45 "^[[:space:]]*[A-Za-z_:][A-Za-z0-9_:]*"
+color 45 ";[[:space:]]*[A-Za-z_:][A-Za-z0-9_:]*"
+color 45 "\[[[:space:]]*[A-Za-z_:][A-Za-z0-9_:]*"
+# flags / options
+color 215 "[[:space:]]-[A-Za-z_][A-Za-z0-9_]*"
+# control keywords
+color 205 "\<(if|else|elseif|for|foreach|while|switch|break|continue|return|proc|catch|try|error)\>"
+color 205 "\<[0-9]+(\.[0-9]+)?\>"
+color 231 "\$\{?[A-Za-z_:][A-Za-z0-9_:]*\}?"
+color 231 "[][(){};]"
+color 47 "\"([^\"\\]|\\.)*\""
+color 107 "(^|;)[[:space:]]*#.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

@@ -1,0 +1,17 @@
+## Voltage - nano interface colors.
+## Colors are xterm-256 palette indices, each the closest slot to the Voltage hex
+## value in docs/palette.md. install.sh rewrites them to named colors on nano < 6.0.
+## For the best match, set your terminal background to #0d1117.
+## These `set` lines are inlined into ~/.nanorc by install.sh (nano does not allow
+## `set` inside included files); the syntax/ files are included as-is.
+
+set titlecolor bold,45,233
+set statuscolor bold,233,45
+set errorcolor bold,233,205
+set selectedcolor 231,24
+set numbercolor 243
+set scrollercolor 243
+set keycolor bold,45,232
+set functioncolor 251,232
+set promptcolor 231,233
+set spotlightcolor 233,220

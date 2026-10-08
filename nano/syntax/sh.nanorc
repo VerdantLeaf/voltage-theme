@@ -1,0 +1,18 @@
+## Voltage - shell
+syntax "voltage-sh" "\.(sh|bash|zsh)$" "(^|/)\.?(bashrc|bash_profile|bash_aliases|zshrc|profile)$"
+header "^#!.*/(env +)?(ba|z|da|k)?sh"
+
+color 205 "\<[0-9]+\>"
+# options
+color 215 "[[:space:]]--?[A-Za-z][A-Za-z0-9_-]*"
+# builtins / common commands
+color 117 "\<(echo|cd|export|source|alias|printf|read|test|set|unset|local|declare|eval|exec|exit|shift|trap|type|pwd|ls|cat|grep|sed|awk|mkdir|rm|cp|mv)\>"
+# control flow
+color 205 "\<(if|then|else|elif|fi|for|while|until|do|done|case|esac|in|select|function|return|break|continue)\>"
+color 45 "^[[:space:]]*(function[[:space:]]+)?[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\(\)"
+color 231 "\$\{?[A-Za-z_0-9@*#?$!-]+\}?"
+color 231 "[][(){};|&]"
+color 47 "'[^']*'"
+color 47 "\"([^\"\\]|\\.)*\""
+color 107 "(^|[[:space:]])#.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"

@@ -1,0 +1,15 @@
+## Voltage - YAML
+syntax "voltage-yaml" "\.ya?ml$"
+
+color 205 "\<-?[0-9]+(\.[0-9]+)?\>"
+color 170 "\<(true|false|null|yes|no|True|False|Null|~)\>"
+color 222 "[&*][A-Za-z0-9_-]+"
+color 79 "'([^']|'')*'"
+color 79 "\"([^\"\\]|\\.)*\""
+color 220 "\\(u[0-9A-Fa-f]{4}|.)"
+# keys
+color 45 "^[[:space:]-]*[A-Za-z0-9_.\"'/ -]+:([[:space:]]|$)"
+color 231 "[][{}:,]"
+color 243 "^(---|\.\.\.)[[:space:]]*$"
+color 107 "(^|[[:space:]])#.*"
+color bold,196 "\<(TODO|FIXME|XXX)\>"
