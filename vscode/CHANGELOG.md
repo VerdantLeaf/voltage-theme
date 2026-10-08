@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+- Added syntax highlighting for nano config files (`.nanorc`), colored with the Voltage palette.
+
 ## 1.2.1
 
 - Renamed the extension display name to "Voltage Theme".

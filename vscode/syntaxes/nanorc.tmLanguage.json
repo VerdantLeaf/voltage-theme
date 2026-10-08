@@ -1,0 +1,182 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "nanorc",
+  "scopeName": "source.nanorc",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#syntax-line"
+    },
+    {
+      "include": "#color-line"
+    },
+    {
+      "include": "#include-line"
+    },
+    {
+      "include": "#set-line"
+    },
+    {
+      "include": "#command-line"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^\\s*(#.*)$",
+      "captures": {
+        "1": {
+          "name": "comment.line.number-sign.nanorc"
+        }
+      }
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.nanorc",
+          "begin": "\"",
+          "end": "\"|$",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nanorc",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "match": "\\b\\d+\\b",
+      "name": "constant.numeric.nanorc"
+    },
+    "color-spec": {
+      "patterns": [
+        {
+          "match": "\\b(bold|italic)\\b",
+          "name": "storage.modifier.nanorc"
+        },
+        {
+          "match": "\\b(?:light)?(?:black|red|green|yellow|blue|magenta|cyan|white)\\b|\\b(?:pink|purple|mauve|lagoon|mint|lime|peach|orange|latte|rosy|beet|plum|sea|sky|slate|teal|sage|brown|ocher|sand|tawny|brick|crimson|normal)\\b|#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?\\b",
+          "name": "constant.language.nanorc"
+        },
+        {
+          "include": "#numbers"
+        }
+      ]
+    },
+    "syntax-line": {
+      "begin": "^\\s*(syntax)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.nanorc"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#strings"
+        },
+        {
+          "match": "\\b(default|none)\\b",
+          "name": "constant.language.nanorc"
+        },
+        {
+          "match": "\\b[A-Za-z_][\\w-]*\\b",
+          "name": "entity.name.type.nanorc"
+        }
+      ]
+    },
+    "color-line": {
+      "begin": "^\\s*(i?color)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.nanorc"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "match": "\\b(start|end)(=)",
+          "captures": {
+            "1": {
+              "name": "variable.parameter.nanorc"
+            },
+            "2": {
+              "name": "keyword.operator.nanorc"
+            }
+          }
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#color-spec"
+        }
+      ]
+    },
+    "include-line": {
+      "begin": "^\\s*(include|extendsyntax)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.nanorc"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#strings"
+        },
+        {
+          "match": "\\b[A-Za-z_][\\w-]*\\b",
+          "name": "entity.name.type.nanorc"
+        }
+      ]
+    },
+    "set-line": {
+      "begin": "^\\s*(set|unset)\\s+([A-Za-z_]+)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.nanorc"
+        },
+        "2": {
+          "name": "support.function.nanorc"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#color-spec"
+        }
+      ]
+    },
+    "command-line": {
+      "begin": "^\\s*(bind|unbind|header|magic|comment|formatter|linter|tabgives|tabsize|whitespace)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.nanorc"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#strings"
+        },
+        {
+          "match": "\\^[A-Za-z\\]\\\\^_]|\\bM-[A-Za-z0-9]\\b|\\bF\\d+\\b",
+          "name": "constant.character.nanorc"
+        },
+        {
+          "match": "\\b(main|help|search|replace|browser|linter|all|yesno|gotoline|writeout|insert|execute|spell|whereisfile|gotodir)\\b",
+          "name": "entity.name.type.nanorc"
+        },
+        {
+          "include": "#numbers"
+        }
+      ]
+    }
+  }
+}
