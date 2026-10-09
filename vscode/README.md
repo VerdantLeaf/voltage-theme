@@ -3,7 +3,7 @@
 A high-contrast, vibrant dark theme with clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.
 
 <p align="center">
-  <img src="media/logo.png" width="180" alt="Voltage logo"/>
+  <img src="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/vscode/media/logo.png" width="180" alt="Voltage logo"/>
 </p>
 
 No dimming, no washed-out "filter" look — dark background, rich color variety, and syntax highlighting tuned for C/CUDA, SystemVerilog, Tcl, and Python.
@@ -11,7 +11,7 @@ No dimming, no washed-out "filter" look — dark background, rich color variety,
 ## Preview
 
 <p align="center">
-  <img src="media/preview-sv.png" width="600" alt="Voltage theme preview — SystemVerilog"/>
+  <img src="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/vscode/media/preview-sv.png" width="600" alt="Voltage theme preview — SystemVerilog"/>
 </p>
 
 ## Install

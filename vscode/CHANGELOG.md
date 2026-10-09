@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+
+- Fixed the logo and preview images not displaying on the Marketplace listing.
+
 ## 1.3.0
 
 - Added syntax highlighting for nano config files (`.nanorc`), colored with the Voltage palette.
