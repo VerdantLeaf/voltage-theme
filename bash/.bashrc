@@ -55,7 +55,9 @@ alias df="df -h"
 alias du="du -h"
 alias free="free -h"
 
-alias update-voltage="~/voltage-theme/bash/update-voltage-theme.sh"
+VOLTAGE_RAW="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash"
+update-bash() { curl -fsSL "$VOLTAGE_RAW/update-bash.sh" | bash; }
+update-voltage() { curl -fsSL "$VOLTAGE_RAW/update-voltage.sh" | bash; }
 alias less="less -R -N"
 alias python="python3"
 

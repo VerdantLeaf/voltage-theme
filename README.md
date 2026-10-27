@@ -110,7 +110,7 @@ Notes:
 - nano older than 6.0 (e.g. 5.6 on RHEL 9) only understands named colors, so the installer picks the closest name instead. Upgrading nano gets you the closer match; re-run the installer afterward.
 - nano uses regex rules, not a parser, so semantic distinctions (function parameters vs. locals, function declarations, SystemVerilog instance names) can't be reproduced. Everything that can be matched by pattern is.
 
-**Releasing nano (maintainers):** bump `nano/VERSION`, add a matching `## X.Y.Z` entry to `nano/CHANGELOG.md`, and merge to `main`. [release-nano.yml](.github/workflows/release-nano.yml) publishes `nano-vX.Y.Z` with the tarball attached. It is not marked "latest", so `bash/update-voltage-theme.sh` keeps finding the VS Code release.
+**Releasing nano (maintainers):** bump `nano/VERSION`, add a matching `## X.Y.Z` entry to `nano/CHANGELOG.md`, and merge to `main`. [release-nano.yml](.github/workflows/release-nano.yml) publishes `nano-vX.Y.Z` with the tarball attached. It is not marked "latest", so the VS Code release stays the latest one.
 
 **Vim and Neovim:**
 
@@ -134,7 +134,20 @@ Notes:
 **Releasing Vim/Neovim (maintainers):** bump `vim/VERSION`, add a matching `## X.Y.Z` entry to `vim/CHANGELOG.md`, and merge to `main`. [release-vim.yml](.github/workflows/release-vim.yml) publishes `vim-vX.Y.Z` with the tarball attached, not marked "latest".
 
 **Bash:**
-Grab what you'd like from `bash/.bashrc` and drop it into `~/.bashrc` — More for my personal uses
+Personal config, shared as-is. It lives in a separate `~/.bashrc.verdantleaf` that your `~/.bashrc` sources, so nothing you already have is replaced. Read [bash/.bashrc](bash/.bashrc) before installing it.
+
+First install (also adds the `source` line to `~/.bashrc` if missing):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash/update-bash.sh | bash
+source ~/.bashrc
+```
+
+To update later, run `update-bash`. It fetches the latest `bash/.bashrc` from `main` and overwrites `~/.bashrc.verdantleaf`; nothing is fetched automatically when a shell starts. No clone of this repo is needed.
+
+`update-voltage` downloads the latest nano and Vim/Neovim releases and runs their installers (skipping any editor that isn't installed).
+
+To remove it, delete `~/.bashrc.verdantleaf` and the `source` line in `~/.bashrc`.
 
 ## Palette
 

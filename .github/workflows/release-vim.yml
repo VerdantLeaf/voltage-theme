@@ -63,8 +63,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # --latest=false: the "latest" release stays the VS Code one, which
-          # bash/update-voltage-theme.sh downloads.
+          # --latest=false: the "latest" release stays the VS Code one.
           gh release create "${{ steps.version.outputs.tag }}" \
             "voltage-vim-${{ steps.version.outputs.version }}.tar.gz" \
             --title "Voltage Vim and Neovim v${{ steps.version.outputs.version }}" \
