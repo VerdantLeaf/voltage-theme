@@ -5,50 +5,68 @@ case $- in
       *) return;;
 esac
 
+# Shell options
 shopt -s autocd
 shopt -s checkwinsize
+shopt -s histappend
+shopt -s histverify
+shopt -s cdspell
+shopt -s dirspell
+shopt -s globstar
 
-HISTSIZE=5000
+# History
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTCONTROL=ignoreboth:erasedups
+HISTTIMEFORMAT='%F %T '
 
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Navigation
 alias ...="cd ../.."
-alias back="cd -"
+alias ....="cd ../../.."
+alias bk="cd -"
 
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias l='ls -CF --color=auto'
+    alias lt='ls -lahtr --color=auto'
     alias ls="ls --color=auto"
     alias ll="ls -alF -h --color=auto"
     alias la="ls -A --color=auto"
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
+# git
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
 alias gl="git log --oneline --graph --decorate"
+alias gd="git diff"
+alias gco="git checkout"
+alias gb="git branch"
+alias gpl="git pull"
 
 alias df="df -h"
 alias du="du -h"
 alias free="free -h"
 
-alias ...="cd ../.."
-alias back="cd -"
-
 alias update-voltage="~/voltage-theme/bash/update-voltage-theme.sh"
 alias less="less -R -N"
-
-alias less="less -R -N"
-alias nano="nano -l -E -i -S -m -B"
-
 alias python="python3"
 
+PROMPT_DIRTRIM=2
+
+# Funcs
+parse_git_branch() {
+  git branch --show-current 2>/dev/null
+}
+
+PS1='\[\e[36m\]\h\[\e[0m\]\[\e[37m\]:\[\e[33m\]$(parse_git_branch)\[\e[37m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 # Get sizes of dirs and files using du, but map to lz and make it colorful
 lz() {
     du -ahd 1 "${@:-.}" | sort -h | while IFS=$'\t' read -r size path; do
@@ -60,26 +78,18 @@ lz() {
     done
 }
 
-# Map .. to go up one directory, optionally into a subdirectory with .. <directory_name>
-..() {
-  if [ -z "$1" ]; then
-    cd ..
-  else
-    cd "../$1"
+mkcd(): { mkdir -p -- "$1" && cd -- "$1"; }
+
+
+
+
+nano() {
+
+  local default_flags="-l -E -i -S -m"
+
+  if [ -n "$DISPLAY" ] && command -v gnome-terminal >/dev/null 2>&1; then
+    gnome-terminal --tab -- \nano $default_flags "$@"
+  else 
+    \nano $default_flags "$@"
   fi
 }
-
-_parent_dir_complete() {
-  local IFS=$'\n'
-  COMPREPLY=( $(cd .. && compgen -d -- "$2") )
-}
-
-complete -F _parent_dir_complete ..
-
-PROMPT_DIRTRIM=2
-
-parse_git_branch() {
-  git branch 2>/dev/null | sed -n '/\* /s///p'
-}
-
-PS1='\[\e[36m\]\h\[\e[0m\]\[\e[37m\]:\[\e[33m\]$(parse_git_branch)\[\e[37m\]:\[\e[34m\]\w\[\e[0m\]\$ '
