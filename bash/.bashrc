@@ -5,6 +5,9 @@ case $- in
       *) return;;
 esac
 
+# Unalias anything because I changed it
+unalias lz mkcd nano update-bash update-voltage 2>/dev/null
+
 # Shell options
 shopt -s autocd
 shopt -s checkwinsize
@@ -14,22 +17,28 @@ shopt -s cdspell
 shopt -s dirspell
 shopt -s globstar
 
+# Better search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
 # History
 HISTSIZE=10000
 HISTFILESIZE=20000
 HISTCONTROL=ignoreboth:erasedups
 HISTTIMEFORMAT='%F %T '
 
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-
 # Navigation
+PROMPT_DIRTRIM=2
+
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias bk="cd -"
+parse_git_branch() {
+  git branch --show-current 2>/dev/null
+}
+PS1='\[\e[36m\]\h\[\e[0m\]\[\e[37m\]:\[\e[33m\]$(parse_git_branch)\[\e[37m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 
-
-# enable color support of ls and also add handy aliases
+# Color ls and grep and stuff
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias l='ls -CF --color=auto'
@@ -51,25 +60,20 @@ alias gco="git checkout"
 alias gb="git branch"
 alias gpl="git pull"
 
+# Random stuff
+alias less="less -R -N"
 alias df="df -h"
 alias du="du -h"
 alias free="free -h"
+alias python="python3"
 
+
+# Update funcs
 VOLTAGE_RAW="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash"
 update-bash() { curl -fsSL "$VOLTAGE_RAW/update-bash.sh" | bash; }
 update-voltage() { curl -fsSL "$VOLTAGE_RAW/update-voltage.sh" | bash; }
-alias less="less -R -N"
-alias python="python3"
 
-PROMPT_DIRTRIM=2
-
-# Funcs
-parse_git_branch() {
-  git branch --show-current 2>/dev/null
-}
-
-PS1='\[\e[36m\]\h\[\e[0m\]\[\e[37m\]:\[\e[33m\]$(parse_git_branch)\[\e[37m\]:\[\e[34m\]\w\[\e[0m\]\$ '
-# Get sizes of dirs and files using du, but map to lz and make it colorful
+# Get size of dirs recursively, with color
 lz() {
     du -ahd 1 "${@:-.}" | sort -h | while IFS=$'\t' read -r size path; do
         if [ -d "$path" ]; then
@@ -80,11 +84,10 @@ lz() {
     done
 }
 
+# mk and go into
 mkcd() { mkdir -p -- "$1" && cd -- "$1"; }
 
-
-
-
+# nano + better 
 nano() {
 
   local default_flags="-l -E -i -S -m"
