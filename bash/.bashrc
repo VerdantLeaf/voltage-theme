@@ -78,7 +78,7 @@ lz() {
     done
 }
 
-mkcd(): { mkdir -p -- "$1" && cd -- "$1"; }
+mkcd() { mkdir -p -- "$1" && cd -- "$1"; }
 
 
 
