@@ -5,6 +5,14 @@ case $- in
       *) return;;
 esac
 
+# Commands that should only run once on terminal start
+if [ -z "$BASHRC_HAS_RUN" ]; then
+    export BASHRC_HAS_RUN=1
+
+    echo "Hello $USER, it is $(date '+%A, %B %d, %Y at %I:%M %p')"
+
+fi
+
 # Unalias anything because I changed it
 unalias lz mkcd nano update-bash update-voltage fd rg 2>/dev/null
 
