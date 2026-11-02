@@ -6,7 +6,7 @@ case $- in
 esac
 
 # Unalias anything because I changed it
-unalias lz mkcd nano update-bash update-voltage 2>/dev/null
+unalias lz mkcd nano update-bash update-voltage fd rg 2>/dev/null
 
 # Shell options
 shopt -s autocd
@@ -48,6 +48,32 @@ if [ -x /usr/bin/dircolors ]; then
     alias la="ls -A --color=auto"
     alias grep='grep --color=auto'
 fi
+
+# ripgrep and fd
+if command -v rg >/dev/null 2>&1; then
+    # smart-case, line numbers, color, hidden files (still honors .gitignore), skip .git
+    alias rg="rg --smart-case --line-number --color=auto --hidden --glob '!.git'"
+    alias rgi="rg --no-ignore"         # also search gitignored files
+    alias rgf="rg --files-with-matches" # only list matching file names
+    alias rgc="rg --count"             # match count per file
+    alias rgw="rg --word-regexp"       # whole word match
+    alias rgl="rg --fixed-strings"     # literal string, no regex
+    # rg results through less, keeping color
+    rgp() { command rg --smart-case --line-number --hidden --glob '!.git' --color=always --heading "$@" | \less -R; }
+fi
+
+# Debian/Ubuntu ship fd as fdfind
+_fd_bin=$(command -v fd || command -v fdfind)
+if [ -n "$_fd_bin" ]; then
+    # smart-case is an fd default; add hidden files (still honors .gitignore), skip .git
+    alias fd="$_fd_bin --hidden --exclude .git --color=auto"
+    alias fdi="fd --no-ignore"         # also include gitignored files
+    alias fdd="fd --type d"            # directories only
+    alias fdf="fd --type f"            # files only
+    alias fde="fd --extension"         # fde md  -> all .md files
+    alias fdl="fd --list-details"      # ls -l style output
+fi
+unset _fd_bin
 
 # git
 alias gs="git status"
