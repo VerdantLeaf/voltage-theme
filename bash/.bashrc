@@ -6,8 +6,8 @@ case $- in
 esac
 
 # Commands that should only run once on terminal start
-if [ -z "$BASHRC_HAS_RUN" ]; then
-    export BASHRC_HAS_RUN=1
+if [ -z "$VL_BASHRC_HAS_RUN" ]; then
+    export VL_BASHRC_HAS_RUN=1
 
     echo "Hello $USER, it is $(date '+%A, %B %d, %Y at %I:%M %p')"
 
