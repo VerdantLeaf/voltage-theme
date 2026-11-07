@@ -123,12 +123,10 @@ mkcd() { mkdir -p -- "$1" && cd -- "$1"; }
 
 # nano + better 
 nano() {
-
-  local default_flags="-l -E -i -S -m"
-
-  if [ -n "$DISPLAY" ] && command -v gnome-terminal >/dev/null 2>&1; then
-    gnome-terminal --tab -- \nano $default_flags "$@"
-  else 
-    \nano $default_flags "$@"
+  local flags="-l -E -i -S -m"
+  if [ -n "$DISPLAY" ] && [ -n "$DBUS_SESSION_BUS_ADDRESS" ] && [ -z "$SSH_CONNECTION" ] && command -v gnome-terminal >/dev/null 2>&1; then
+    gnome-terminal --tab -- nano $flags "$@"
+  else
+    command nano $flags "$@"
   fi
 }
