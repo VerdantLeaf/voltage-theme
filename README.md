@@ -1,79 +1,72 @@
-# Voltage
-
-Voltage is a high-contrast, vibrant dark theme for VS Code, nano, Vim and Neovim, which I might expand to other tools as well. 
-
-This project originated with my dissatisfaction with every color theme I seemed to find. I could never get the right combination of colors that I found to be helpful in identifying code and visually pleasing. 
-
-So, I made **Voltage** - No dimming, no washed out colors, but a rich set of vibrant colors against a clean dark background with customization throughout for different languages. 
-
-Voltage is available on the VSCode marketplace at -- https://marketplace.visualstudio.com/items?itemName=VerdantLeaf.voltage-theme
-
 <p align="center">
-  <img src="img/voltage-logo.svg" width="220" alt="Voltage logo"/>
+  <img src="img/voltage-logo.svg" width="200" alt="Voltage logo"/>
 </p>
 
-## Structure
+<h1 align="center">Voltage</h1>
 
+<p align="center">
+  A high-contrast, vibrant dark theme for VS Code, Vim, Neovim and nano.
+</p>
+
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=VerdantLeaf.voltage-theme">VS Code Marketplace</a> ·
+  <a href="https://github.com/VerdantLeaf/voltage-theme/releases">Releases</a> ·
+  <a href="docs/palette.md">Palette</a> ·
+  <a href="CONTRIBUTING.md">Contributing</a>
+</p>
+
+I never found a color theme that made code easy to read *and* looked good, so I built my own. Voltage pairs rich, vivid colors with a clean dark background, tuned for each language so you can tell at a glance what you're looking at. No dimming, no washed-out colors.
+
+## Preview
+
+**SystemVerilog**
+
+<p align="center">
+  <img src="img/preview-sv.svg" width="700" alt="Voltage theme preview, SystemVerilog"/>
+</p>
+
+**C** (excerpt from [curl](https://github.com/curl/curl))
+
+<p align="center">
+  <img src="img/preview-c.svg" width="700" alt="Voltage theme preview, C"/>
+</p>
+
+**Python** (excerpt from [omlx](https://github.com/jundot/omlx))
+
+<p align="center">
+  <img src="img/preview-python.svg" width="700" alt="Voltage theme preview, Python"/>
+</p>
+
+**JSON**
+
+<p align="center">
+  <img src="img/preview-json.svg" width="700" alt="Voltage theme preview, JSON"/>
+</p>
+
+## Install
+
+| Tool | Quickest way |
+|---|---|
+| [VS Code](#vs-code) | `code --install-extension VerdantLeaf.voltage-theme` |
+| [Vim, Neovim and nano](#vim-neovim-and-nano) | `curl -fsSL https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash/update-voltage.sh \| bash` |
+
+For the exact look in a terminal, set its background to `#0d1117`.
+
+### VS Code
+
+Install **Voltage Theme** from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=VerdantLeaf.voltage-theme), then press `Ctrl+Shift+P` → **Preferences: Color Theme** → **Voltage**.
+
+To install offline, download the `.vsix` from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and run:
+
+```bash
+code --install-extension voltage-theme-<version>.vsix
 ```
-voltage/
-├── vscode/
-│   ├── package.json
-│   └── themes/
-│       └── voltage-color-theme.json
-├── nano/
-│   ├── install.sh
-│   ├── VERSION
-│   ├── voltage.nanorc
-│   └── syntax/
-├── vim/
-│   ├── install.sh
-│   ├── VERSION
-│   └── colors/
-│       └── voltage.vim
-├── bash/
-│   └── .bashrc
-├── docs/
-│   └── palette.md
-├── img/
-│   ├── voltage-logo.svg
-│   ├── preview-c.svg
-│   ├── preview-sv.svg
-│   ├── preview-python.svg
-│   └── preview-json.svg
-├── LICENSE
-└── README.md
-```
 
-Each tool gets its own top-level folder and its own releases. The palette itself is documented once, in `docs/palette.md`, rather than duplicated per app.
+The extension also adds syntax highlighting for nano config files (`.nanorc`).
 
-## Installation
+#### Recommended settings
 
-**VS Code:**
-
-Grab the packaged extension from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and install it with:
-
-```
-code --install-extension voltage-theme-1.1.0.vsix
-```
-
-Or install manually from the file: `Ctrl+Shift+P` → "Extensions: Install from VSIX..." → select the `.vsix`.
-
-Then `Ctrl+Shift+P` → "Preferences: Color Theme" → select **Voltage**.
-
-To build the `.vsix` yourself:
-
-```
-cd vscode
-npx @vscode/vsce package
-```
-
-The extension also adds syntax highlighting for nano config files (`.nanorc`), colored with the Voltage palette.
-
-**Releasing (maintainers):** bump `version` in `vscode/package.json`, add a matching `## X.Y.Z` entry to `vscode/CHANGELOG.md`, and merge to `main`. A [GitHub Actions workflow](.github/workflows/release.yml) then packages the extension and publishes a GitHub Release with the `.vsix` attached automatically — no manual tagging needed.
-
-**Recommended settings:**
-
-I recommend extending the theme with rainbow bracket-pair guides. However, these need to be turned on by hand in your own `settings.json` (colorization itself, `editor.bracketPairColorization.enabled`, is already `true` by default in modern VS Code):
+Voltage colors bracket pairs, but the guide lines connecting them are an editor setting you have to turn on in `settings.json`:
 
 ```json
 {
@@ -81,7 +74,7 @@ I recommend extending the theme with rainbow bracket-pair guides. However, these
 }
 ```
 
-Voltage doesn't bundle its own file icons, but if you have the [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension installed, these are the folder/file tint colors used alongside Voltage:
+Voltage doesn't include file icons. If you use [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), these tints pair well:
 
 ```json
 {
@@ -91,98 +84,52 @@ Voltage doesn't bundle its own file icons, but if you have the [Material Icon Th
 }
 ```
 
-**nano:**
+### Vim, Neovim and nano
 
-nano support is released separately from the VS Code extension (tags `nano-vX.Y.Z`), and the `.vsix` does not contain it. Download the tarball from [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) and run the installer:
+The command in the table above downloads the latest nano and Vim/Neovim releases and runs their installers, skipping any editor you don't have. Re-run it to update.
 
-```
-tar xzf voltage-nano-<version>.tar.gz
-./voltage-nano-<version>/install.sh
-```
+You can also install from a clone, or from a `voltage-vim-*` / `voltage-nano-*` tarball on the [Releases](https://github.com/VerdantLeaf/voltage-theme/releases) page:
 
-Or, from a clone of this repo: `./nano/install.sh`.
-
-The installer copies the theme to `~/.config/nano/voltage/` and adds a marked block to your `~/.nanorc` (or `~/.config/nano/nanorc` if that's the one you use) — it's safe to re-run to update, and `./install.sh --uninstall` removes it all. It gives you interface colors plus syntax highlighting for C/C++/CUDA, Python, SystemVerilog, Tcl/SDC, JSON, YAML, TOML, Markdown and shell.
-
-Notes:
-
-- nano can only use the terminal's 256-color palette, so each Voltage color is mapped to the nearest slot. For the best match, set your terminal background to `#0d1117`.
-- nano older than 6.0 (e.g. 5.6 on RHEL 9) only understands named colors, so the installer picks the closest name instead. Upgrading nano gets you the closer match; re-run the installer afterward.
-- nano uses regex rules, not a parser, so semantic distinctions (function parameters vs. locals, function declarations, SystemVerilog instance names) can't be reproduced. Everything that can be matched by pattern is.
-
-**Releasing nano (maintainers):** bump `nano/VERSION`, add a matching `## X.Y.Z` entry to `nano/CHANGELOG.md`, and merge to `main`. [release-nano.yml](.github/workflows/release-nano.yml) publishes `nano-vX.Y.Z` with the tarball attached. It is not marked "latest", so the VS Code release stays the latest one.
-
-**Vim and Neovim:**
-
-One colorscheme, `vim/colors/voltage.vim`, serves both editors and uses the exact Voltage hex colors, so it looks the same as the VS Code theme. Vim and Neovim are released separately from VS Code and nano (tags `vim-vX.Y.Z`). From a Linux shell:
-
-```
-gh release download --repo VerdantLeaf/voltage-theme --pattern 'voltage-vim-*.tar.gz'
-tar xzf voltage-vim-*.tar.gz
-./voltage-vim-*/install.sh
+```bash
+./vim/install.sh     # --vim or --nvim to pick one
+./nano/install.sh
 ```
 
-Or, from a clone of this repo: `./vim/install.sh`.
+Each installer adds a marked block to your config and leaves the rest alone. Run it with `--uninstall` to remove Voltage.
 
-The installer detects Vim and/or Neovim (`--vim` / `--nvim` to pick one) and copies the scheme to `~/.vim/colors/` and `~/.config/nvim/colors/`. It then adds a marked block to your `~/.vimrc` and `init.vim` / `init.lua` that enables truecolor and runs `colorscheme voltage`. It is safe to re-run, and `./install.sh --uninstall` removes everything.
+**Vim and Neovim**
 
-Notes:
+- Colors match VS Code exactly in a **24-bit color terminal** (inside tmux, enable `Tc`/`RGB`). Otherwise they fall back to the nearest 256-color values.
+- Neovim with Treesitter/LSP colors declarations, calls, parameters and members separately. Plain Vim's regex syntax can't tell parameters or declarations apart.
+- Files are installed to `~/.vim/colors/` and `~/.config/nvim/colors/`.
 
-- Voltage needs a **24-bit color terminal** (most modern ones; inside tmux, enable `Tc`/`RGB`). Without `termguicolors`, colors fall back to the nearest 256-color slot, which is close but not exact. Set your terminal background to `#0d1117` for the exact look.
-- Neovim gets Treesitter and LSP semantic-token groups, so declarations, calls, parameters and struct members are colored separately like in VS Code. Plain Vim uses its regex syntax files; function calls and member access are added for C/C++/CUDA, Python and SystemVerilog, but parameters and declarations can't be told apart there.
+**nano**
 
-**Releasing Vim/Neovim (maintainers):** bump `vim/VERSION`, add a matching `## X.Y.Z` entry to `vim/CHANGELOG.md`, and merge to `main`. [release-vim.yml](.github/workflows/release-vim.yml) publishes `vim-vX.Y.Z` with the tarball attached, not marked "latest".
+- Covers C/C++/CUDA, Python, SystemVerilog, Tcl/SDC, JSON, YAML, TOML, Markdown and shell.
+- Colors are mapped to the nearest 256-color values. nano older than 6.0 (e.g. on RHEL 9) only gets named colors; after upgrading, re-run the installer.
+- Highlighting is regex-based, so semantic distinctions such as parameters vs. locals aren't available.
+- Files are installed to `~/.config/nano/voltage/`.
 
-**Bash:**
-Personal config, shared as-is. It lives in a separate `~/.bashrc.verdantleaf` that your `~/.bashrc` sources, so nothing you already have is replaced. Read [bash/.bashrc](bash/.bashrc) before installing it.
+## Bonus: my Bash config
 
-First install (also adds the `source` line to `~/.bashrc` if missing):
+This repo also holds my personal [`.bashrc`](bash/.bashrc), so I can set up a new server in moments. It's shared as-is: **read it before installing**, since it changes the behavior of commands such as `less`, `du` and `nano`.
+
+It includes a prompt showing the git branch, prefix-based history search, aliases for git, ripgrep and fd, and helpers such as `mkcd` and `lz` (directory sizes).
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash/update-bash.sh | bash
 source ~/.bashrc
 ```
 
-To update later, run `update-bash`. It fetches the latest `bash/.bashrc` from `main` and overwrites `~/.bashrc.verdantleaf`; nothing is fetched automatically when a shell starts. No clone of this repo is needed.
+The config is saved to `~/.bashrc.verdantleaf` and sourced from your `~/.bashrc`, so your existing settings file isn't replaced.
 
-`update-voltage` downloads the latest nano and Vim/Neovim releases and runs their installers (skipping any editor that isn't installed).
+| Command | What it does |
+|---|---|
+| `update-bash` | Overwrites `~/.bashrc.verdantleaf` with the latest version from `main` |
+| `update-voltage` | Installs the latest nano and Vim/Neovim themes |
 
-To remove it, delete `~/.bashrc.verdantleaf` and the `source` line in `~/.bashrc`.
-
-## Palette
-
-See [`docs/palette.md`](docs/palette.md) for the full color table.
-
-## Preview
-
-**C** — excerpt from [curl](https://github.com/curl/curl):
-
-<p align="center">
-  <img src="img/preview-c.svg" width="700" alt="Voltage theme preview — C"/>
-</p>
-
-**SystemVerilog:**
-
-<p align="center">
-  <img src="img/preview-sv.svg" width="700" alt="Voltage theme preview — SystemVerilog"/>
-</p>
-
-**Python** — excerpt from [omlx](https://github.com/jundot/omlx):
-
-<p align="center">
-  <img src="img/preview-python.svg" width="700" alt="Voltage theme preview — Python"/>
-</p>
-
-**JSON:**
-
-<p align="center">
-  <img src="img/preview-json.svg" width="700" alt="Voltage theme preview — JSON"/>
-</p>
+Nothing is fetched automatically when a shell starts. To uninstall, delete `~/.bashrc.verdantleaf` and the `source` line in `~/.bashrc`.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
-
-## Notes
-
-This is a living theme — colors get adjusted as new languages or edge cases come up. Check the commit history for the latest tweaks.
+[MIT](LICENSE). This is a living theme: colors get adjusted as new languages and edge cases come up.
