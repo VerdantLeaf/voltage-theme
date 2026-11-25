@@ -1,24 +1,24 @@
 # Voltage
 
-A high-contrast, vibrant dark theme with clear semantic distinctions between declarations, types, parameters, struct/signal access, and control flow.
+A high-contrast, vibrant dark theme with clear distinctions between declarations, types, parameters, struct/signal access and control flow.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/vscode/media/logo.png" width="180" alt="Voltage logo"/>
 </p>
 
-No dimming, no washed-out "filter" look — dark background, rich color variety, and syntax highlighting tuned for C/CUDA, SystemVerilog, Tcl, and Python.
+No dimming and no washed-out colors: a rich palette on a dark background, tuned for C/C++/CUDA, SystemVerilog, Tcl, Python, JSON, YAML, TOML and Markdown (editor and preview). It also adds syntax highlighting for nano config files (`.nanorc`).
 
 ## Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/vscode/media/preview-sv.png" width="600" alt="Voltage theme preview — SystemVerilog"/>
+  <img src="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/vscode/media/preview-sv.png" width="600" alt="Voltage theme preview, SystemVerilog"/>
 </p>
 
-## Install
+## Setup
 
-`Ctrl+Shift+P` → "Preferences: Color Theme" → **Voltage**
+Press `Ctrl+Shift+P` → **Preferences: Color Theme** → **Voltage**.
 
-For rainbow bracket-pair guides, also add this to your own `settings.json` — themes can set bracket *colors* but not this editor behavior toggle:
+For bracket-pair guide lines, add this to your `settings.json` (themes can set bracket colors, but can't turn on the guides):
 
 ```json
 {
@@ -26,9 +26,9 @@ For rainbow bracket-pair guides, also add this to your own `settings.json` — t
 }
 ```
 
-## Recommended Extensions
+## File icons
 
-**File Icons:** Voltage doesn't bundle file icons, but if you have [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) installed, these folder/file tint colors pair well with Voltage:
+Voltage doesn't include file icons. If you use [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), these tints pair well:
 
 ```json
 {
@@ -38,9 +38,9 @@ For rainbow bracket-pair guides, also add this to your own `settings.json` — t
 }
 ```
 
-## Palette & full documentation
+## More
 
-See the [project repository](https://github.com/VerdantLeaf/voltage-theme) for the full color palette, language-specific notes, and the bash dotfiles this repo also ships.
+The [project repository](https://github.com/VerdantLeaf/voltage-theme) has the [full palette](https://github.com/VerdantLeaf/voltage-theme/blob/main/docs/palette.md), plus Voltage for Vim, Neovim and nano.
 
 ## License
 
