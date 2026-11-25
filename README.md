@@ -110,7 +110,7 @@ Each installer adds a marked block to your config and leaves the rest alone. Run
 - Highlighting is regex-based, so semantic distinctions such as parameters vs. locals aren't available.
 - Files are installed to `~/.config/nano/voltage/`.
 
-## Bonus: my Bash config
+## Bonus: my Bash and tmux configs
 
 This repo also holds my personal [`.bashrc`](bash/.bashrc), so I can set up a new server in moments. It's shared as-is: **read it before installing**, since it changes the behavior of commands such as `less`, `du` and `nano`.
 
@@ -127,8 +127,24 @@ The config is saved to `~/.bashrc.verdantleaf` and sourced from your `~/.bashrc`
 |---|---|
 | `update-bash` | Overwrites `~/.bashrc.verdantleaf` with the latest version from `main` |
 | `update-voltage` | Installs the latest nano and Vim/Neovim themes |
+| `update-tmux` | Installs or updates the tmux config below |
 
 Nothing is fetched automatically when a shell starts. To uninstall, delete `~/.bashrc.verdantleaf` and the `source` line in `~/.bashrc`.
+
+### tmux
+
+[The tmux config](tmux/.tmux.conf) provides:
+
+- Mouse mode, scrolling one line per wheel step instead of five
+- Windows and panes numbered from 1
+- A Voltage status bar with window names taken from the running program or current folder
+- A session badge that turns gold after `Ctrl+b`, orchid in copy mode and red when panes are synchronized
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/tmux/update-tmux.sh | bash
+```
+
+It's saved to `~/.tmux.verdantleaf.conf` and sourced from your `~/.tmux.conf`, so your existing settings file isn't replaced. New tmux servers load it automatically; in a running one, use `tmux source-file ~/.tmux.verdantleaf.conf`. Update with the same command, or `update-tmux` if you use the Bash config. To uninstall, delete the file and the `source-file` line, then restart tmux.
 
 ## License
 

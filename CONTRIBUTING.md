@@ -12,6 +12,7 @@ will be accepted, or that it will stay forever.
 | `vim/` | Vim and Neovim colorscheme and installer |
 | `nano/` | nano theme and installer |
 | `bash/` | Personal `.bashrc` and update scripts |
+| `tmux/` | Personal tmux config and its update script |
 | `docs/palette.md` | The palette, documented in one place |
 | `img/` | Logo, previews and color swatches |
 

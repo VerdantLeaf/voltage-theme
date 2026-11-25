@@ -14,7 +14,7 @@ if [ -z "$VL_BASHRC_HAS_RUN" ]; then
 fi
 
 # Unalias anything because I changed it
-unalias lz mkcd nano update-bash update-voltage fd rg 2>/dev/null
+unalias lz mkcd nano update-bash update-voltage update-tmux fd rg 2>/dev/null
 
 # Shell options
 shopt -s autocd
@@ -103,9 +103,10 @@ alias python="python3"
 
 
 # Update funcs
-VOLTAGE_RAW="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main/bash"
-update-bash() { curl -fsSL "$VOLTAGE_RAW/update-bash.sh" | bash; }
-update-voltage() { curl -fsSL "$VOLTAGE_RAW/update-voltage.sh" | bash; }
+VOLTAGE_RAW="https://raw.githubusercontent.com/VerdantLeaf/voltage-theme/main"
+update-bash() { curl -fsSL "$VOLTAGE_RAW/bash/update-bash.sh" | bash; }
+update-voltage() { curl -fsSL "$VOLTAGE_RAW/bash/update-voltage.sh" | bash; }
+update-tmux() { curl -fsSL "$VOLTAGE_RAW/tmux/update-tmux.sh" | bash; }
 
 # Get size of dirs recursively, with color
 lz() {
