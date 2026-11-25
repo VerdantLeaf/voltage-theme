@@ -1,5 +1,9 @@
 # Voltage Palette
 
+The editor background is `#0d1117`.
+
+## General
+
 | | Element | Hex |
 |---|---|---|
 | ![#00ff41](../img/swatches/00ff41.svg) | Strings | `#00ff41` |
@@ -22,7 +26,7 @@ Bracket pair colors cycle through:
 | ![#ffd700](../img/swatches/ffd700.svg) gold `#ffd700` | ![#da70d6](../img/swatches/da70d6.svg) orchid `#da70d6` | ![#87ceeb](../img/swatches/87ceeb.svg) sky blue `#87ceeb` | ![#ff6347](../img/swatches/ff6347.svg) tomato `#ff6347` | ![#98fb98](../img/swatches/98fb98.svg) mint `#98fb98` | ![#ffaa44](../img/swatches/ffaa44.svg) light orange `#ffaa44` |
 |---|---|---|---|---|---|
 
-These colors are wired up via `editorBracketHighlight.foreground1-6` in the theme itself, but the vertical guide lines connecting bracket pairs are an editor setting, not a theme color, so they need `"editor.guides.bracketPairs": true` set by hand (see the main [README](../README.md#recommended-settings)).
+In VS Code, the guide lines connecting bracket pairs also need a [setting turned on](../README.md#recommended-settings).
 
 ## SystemVerilog
 
@@ -44,16 +48,22 @@ Numbers and operators inside bit-select brackets (e.g. `-1:0` in `[WORD_WIDTH-1:
 
 Module instantiations get a dedicated trio so a `.port(signal)` binding reads as two distinct colors instead of one blur — the port name (dark goldenrod) and the wired-in signal (lavender) are deliberately different from every other token color in the file.
 
+## JSON, YAML & TOML
+
+| | Element | Hex |
+|---|---|---|
+| ![#00d4ff](../img/swatches/00d4ff.svg) | Keys | `#00d4ff` |
+| ![#6fe09f](../img/swatches/6fe09f.svg) | Strings (softer than the main string green, so long values don't overpower keys) | `#6fe09f` |
+| ![#ffa657](../img/swatches/ffa657.svg) | TOML table names | `#ffa657` |
+| ![#ffffff](../img/swatches/ffffff.svg) | YAML block scalars | `#ffffff` |
+
 ## Language-specific notes
 
 - **C/C++**: struct/object member access (e.g. `x` in `threadIdx.x`) is colored separately from the base identifier.
 - **Tcl**: commands match function color, variables are white, flags/options are orange, control keywords are pink-red.
-- **Python**: `and` / `or` / `not` in conditionals are gold as well (`#ffcc00`), matching enums/macros.
+- **Python**: `and` / `or` / `not` are gold (`#ffcc00`), matching enums and macros.
 
-## nano
+## Terminal editors
 
-nano's syntax files follow the same mapping as the tables above (strings green, control flow pink, types blue, ...), with two limits: nano only has the 256-color terminal palette, so every hex value is snapped to its nearest slot (e.g. `#ffa657` and `#ffaa44` both land on slot 215), and its regex-based highlighting can't tell parameters from locals or find function declarations. On nano older than 6.0 the slots are further reduced to nano's named colors.
-
-## Vim & Neovim
-
-`vim/colors/voltage.vim` uses every hex value in the tables above directly (truecolor), so the colors match VS Code exactly. Without a 24-bit terminal it degrades to the nearest 256-color slot, as nano does. Vim's regex-based syntax can't separate parameters or declarations; Neovim with Treesitter/LSP can.
+- **Vim & Neovim** use these hex values directly in a 24-bit color terminal, and the nearest 256-color values otherwise. Plain Vim can't color parameters or declarations separately; Neovim with Treesitter/LSP can.
+- **nano** uses the nearest 256-color values (e.g. `#ffa657` and `#ffaa44` both become 215), reduced further to named colors before nano 6.0. It can't distinguish parameters from locals or find function declarations.
